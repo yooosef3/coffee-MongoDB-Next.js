@@ -9,7 +9,7 @@ const RatedProduct = ({name, image, price}:ProductPropsType) => {
         <div className="flex gap-10 items-center">
             <div>
                 <Link href='/'>
-                    <Image alt='rated' src={image} width={120} className='rounded-md'/>
+                    <Image alt='rated' src={image[1]} width={120} height={120} className='rounded-md'/>
                 </Link>
             </div>
             <div>

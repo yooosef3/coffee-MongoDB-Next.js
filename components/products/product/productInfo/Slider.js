@@ -2,14 +2,16 @@ import "swiper/css";
 import "swiper/css/navigation";
 
 import { Autoplay, Navigation } from "swiper";
+import React, { useContext } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import Image from "next/image";
-import React from "react";
+import { ProductContext } from "@/pages/products/[productId]";
 
-function Slider({ product }) {
+function Slider() {
+  const product = useContext(ProductContext);
   return (
-    <div className="  h-[400px] lg:w-[50%]">
+    <div className="h-[400px] lg:w-[50%]">
       <Swiper
         spaceBetween={10}
         navigation={true}
@@ -20,8 +22,8 @@ function Slider({ product }) {
         }}
         className="detail xl:w-[80%] shadow-xl rounded-lg"
       >
-        {product.image.map((item) => (
-          <SwiperSlide>
+        {product.image.map((item, i) => (
+          <SwiperSlide key={i}>
             <Image src={item} width={800} height={500} alt="pic" />
           </SwiperSlide>
         ))}

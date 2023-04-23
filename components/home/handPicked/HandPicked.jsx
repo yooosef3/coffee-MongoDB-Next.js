@@ -4,7 +4,7 @@ import React from 'react';
 import Sliders from './Sliders';
 import product from '../../../public/images/banner_0ca7fff5-d565-4e32-aa0f-6a35a2fdeafd.jpg'
 
-const HandPicked = ({productsList}) => {
+const HandPicked = () => {
     return (
         <div>
             <div className="text-center mb-10">
@@ -12,7 +12,7 @@ const HandPicked = ({productsList}) => {
                 <p className='text-gray-400 font-bold lg:text-lg xl:text-xl'>برخلاف تصور رایج، یک قطعه کلاسیک را انتخاب کنید</p>
             </div>
             <div className='flex flex-col gap-5 lg:flex-row lg:items-center lg:w-[90%] xl:w-[80%] mx-auto lg:justify-center'>
-                <Sliders productsList={productsList}/>
+                <Sliders />
                 <div className='w-[90%] lg:w-[50%] mx-auto relative group lg:h-[420px]'>
                     <div className="absolute inset-0 flex flex-col gap-2 justify-center items-center z-10">
                         <h1 className="text-white font-bold text-3xl">50% تخفیف</h1>

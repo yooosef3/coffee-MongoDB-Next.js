@@ -3,7 +3,8 @@ import React from "react";
 import { useSelector } from "react-redux";
 
 const ProductsTable = () => {
-  const cart = useSelector((state) => state.cart);
+  const cartProducts = useSelector((state) => state.cart.items);
+
   return (
     <div className="w-[90%] md:w-[700px] lg:w-[700px] xl:w-[1000px] rounded-lg drop-shadow-lg gap-10 mx-auto mt-14 lg:mt-0 overflow-auto">
       <table className="table-auto w-[1300px] lg:w-[700px] xl:w-[1000px]">
@@ -17,9 +18,19 @@ const ProductsTable = () => {
           </tr>
         </thead>
         <tbody className="bg-white">
-          {cart.products.map((product) => (
-            <Product key={product._id} product={product} />
-          ))}
+          {cartProducts.length ? (
+            cartProducts.map((product) => (
+              <Product key={product._id} product={product} />
+            ))
+          ) : (
+            <tr>
+              <td colSpan={4}>
+                <h1 className="text-red-500 p-3 lg:text-center border-b font-semibold pb-2">
+                  سبد خرید شما خالی است!
+                </h1>
+              </td>
+            </tr>
+          )}
         </tbody>
       </table>
     </div>

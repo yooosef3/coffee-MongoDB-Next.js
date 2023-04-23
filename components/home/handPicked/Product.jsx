@@ -3,10 +3,9 @@ import { BsStarHalf } from "react-icons/bs";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import { addProduct } from "@/redux/cartSlice";
-import { useDispatch } from "react-redux";
 
 const Product = ({ product, two }) => {
+  
   return (
     <div className="sm:flex sm:items-center">
       <span
@@ -47,9 +46,11 @@ const Product = ({ product, two }) => {
           <span className="text-gray-400 font-bold">(4نظر)</span>
         </div>
         <Link href={`/products/${product._id}`}>
-          <button className="border border-gray-300 w-fit hover:bg-[#54a06f] hover:text-white font-bold text-gray-600 pt-1 px-2 rounded-md duration-200">
-            مشاهده محصول
-          </button>
+        <button
+          className="border border-gray-300 w-fit hover:bg-[#54a06f] hover:text-white font-bold text-gray-600 pt-1 px-2 rounded-md duration-200"
+        >
+          مشاهده محصول
+        </button>
         </Link>
       </div>
     </div>

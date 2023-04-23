@@ -1,12 +1,14 @@
 import "swiper/css";
 
+import React, { useContext } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import { Autoplay } from "swiper";
 import Product from "./Product";
-import React from "react";
+import { ProductsContext } from "../../../pages";
 
-const SliderOne = ({ productsList }) => {
+const SliderOne = () => {
+  const productsList = useContext(ProductsContext);
   return (
     <>
       <Swiper

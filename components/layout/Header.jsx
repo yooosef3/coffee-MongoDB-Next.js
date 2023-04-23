@@ -23,7 +23,9 @@ const Header = () => {
   const [openSearch, setOpenSearch] = useState(false);
   const [searched, setSearched] = useState("");
   const [navbar, setNavbar] = useState(false);
-  const quantity = useSelector((state) => state.cart.quantity);
+
+  const products = useSelector((state) => state.cart.items);
+
   const changeBackground = () => {
     if (window.scrollY >= 100) {
       setNavbar(true);
@@ -79,11 +81,14 @@ const Header = () => {
             <div>
               <div className="relative" onClick={() => setToggle(!toggle)}>
                 <FiShoppingCart className="cursor-pointer text-2xl hover:text-green-400 duration-200" />
-                <span className={`absolute font-extrabold ${quantity === 0 ? 'text-red-600' : 'text-green-600'} -top-3 -right-2`}>
-                  {quantity}
+                <span
+                  className={`absolute font-extrabold ${products.length === 0 ? 'text-red-600' : 'text-green-600'}
+                   -top-3 -right-2`}
+                >
+                  {products.length}
                 </span>
               </div>
-              <MenuCart toggle={toggle} />
+              <MenuCart products={products} toggle={toggle} />
             </div>
             <div>
               <HiUser

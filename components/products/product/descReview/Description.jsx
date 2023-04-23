@@ -1,12 +1,11 @@
+import React, { useContext } from 'react';
+
 import Image from 'next/image';
-import React from 'react';
+import { ProductContext } from '@/pages/products/[productId]';
 import pic from '../../../../public/images/demo_600x600.webp'
 
-export type StateTypes = {
-    toggle: boolean,
-    setToggle?: React.Dispatch<React.SetStateAction<boolean>>
-}
-const Description = ({toggle, product}:StateTypes) => {
+const Description = ({toggle}) => {
+    const product = useContext(ProductContext);
     return (
         <div className={`py-4 ${toggle ? 'flex flex-col lg:flex-row lg:items-center lg:gap-20' : 'hidden'} `}>
             <div className='lg:w-[50%]'>
