@@ -1,13 +1,14 @@
+import React, { useCallback, useMemo } from "react";
+import { useDispatch, useSelector } from "react-redux";
+
 import { BsCart4 } from "react-icons/bs";
+import { BsCheck2Circle } from "react-icons/bs";
 import { BsStarFill } from "react-icons/bs";
 import { BsStarHalf } from "react-icons/bs";
-import { BsCheck2Circle } from "react-icons/bs";
-import { MdDoNotDisturbOn } from "react-icons/md";
 import { FiEye } from "react-icons/fi";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useCallback, useMemo } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { MdDoNotDisturbOn } from "react-icons/md";
 import { addItem } from "@/redux/cartSlice";
 
 const Product = ({ product, separate }) => {
@@ -47,7 +48,7 @@ const renderCartIcon = () => {
   } else if (cartProduct) {
     return (
       <BsCheck2Circle
-        className={`${commonClassNames} bg-green-600`}
+        className='text-4xl bg-[#53A16E] rounded-full p-2'
       />
     );
   } else {

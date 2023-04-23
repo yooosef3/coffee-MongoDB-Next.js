@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+  }
+}
+
 @layer base {
   .top-swiper .swiper-pagination span {
     @apply w-4 h-4 bg-yellow-500 rounded-sm;
