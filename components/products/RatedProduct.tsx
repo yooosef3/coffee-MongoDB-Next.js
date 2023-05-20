@@ -1,10 +1,12 @@
 import { BsStarFill } from "react-icons/bs";
 import Image from 'next/image';
 import Link from "next/link";
-import { ProductPropsType } from '../home/handPicked/Product';
 import React from 'react';
 
-const RatedProduct = ({name, image, price}:ProductPropsType) => {
+// import { ProductPropsType } from '../home/handPicked/Product';
+
+
+const RatedProduct = ({name, image, price}) => {
     return (
         <div className="flex gap-10 items-center">
             <div>

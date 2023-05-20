@@ -4,7 +4,7 @@ import BlogDetails from "@/components/blogs/BlogDetails";
 import Head from "next/head";
 import axios from "axios";
 
-export const BlogContext = createContext();
+export const BlogContext = createContext(null);
 
 const blogDetails = ({ blog }) => {
   return (

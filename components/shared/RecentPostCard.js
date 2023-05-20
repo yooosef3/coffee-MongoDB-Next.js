@@ -2,12 +2,13 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 
-type RecentCardTypes = {
-    title: string,
-    content: string,
-    image: any
-}
-const RecentPostCard = ({title, image, content}:RecentCardTypes) => {
+// type RecentCardTypes = {
+//     title: string,
+//     content: string,
+//     name: string,
+//     image: any
+// }
+const RecentPostCard = ({title, image, content}) => {
     return (
         <div className='flex items-center gap-6'>
             <div>

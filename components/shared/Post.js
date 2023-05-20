@@ -7,9 +7,6 @@ import { FaFacebookF } from "react-icons/fa";
 import { FiInstagram } from "react-icons/fi";
 import Image from 'next/image';
 import { IoLogoTwitter } from "react-icons/io";
-import bean1 from '../../public/images/The-Complete-Guide-on-Coffee-Beans-Processing.png'
-import bean2 from '../../public/images/coffee-beans.jpg'
-import bean3 from '../../public/images/coffee-beans-top-view-white-background-space-text.jpg'
 
 const Post = () => {
     const blog = useContext(BlogContext);
