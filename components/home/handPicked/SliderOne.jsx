@@ -5,10 +5,10 @@ import { Swiper, SwiperSlide } from "swiper/react";
 
 import { Autoplay } from "swiper";
 import Product from "./Product";
-import { ProductsContext } from "../../../pages";
+import { HomeContext } from "@/pages";
 
 const SliderOne = () => {
-  const productsList = useContext(ProductsContext);
+  const {productsList} = useContext(HomeContext);
   return (
     <>
       <Swiper

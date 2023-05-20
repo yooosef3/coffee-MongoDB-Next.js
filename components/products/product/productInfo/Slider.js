@@ -24,7 +24,7 @@ function Slider() {
       >
         {product.image.map((item, i) => (
           <SwiperSlide key={i}>
-            <Image src={item} width={800} height={500} alt="pic" />
+            <Image className="w-full h-[500px] object-cover" src={item} width={800} height={500} alt="pic" />
           </SwiperSlide>
         ))}
       </Swiper>

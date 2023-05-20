@@ -3,10 +3,11 @@ import Link from 'next/link';
 import React from 'react';
 
 type RecentCardTypes = {
-    name: string,
+    title: string,
+    content: string,
     image: any
 }
-const RecentPostCard = ({name, image}:RecentCardTypes) => {
+const RecentPostCard = ({title, image, content}:RecentCardTypes) => {
     return (
         <div className='flex items-center gap-6'>
             <div>
@@ -14,7 +15,7 @@ const RecentPostCard = ({name, image}:RecentCardTypes) => {
             </div>
             <div>
                 <Link href='/' className='w-fit'>
-                    <h1 className='text-black mb-1 font-bold text-lg hover:text-red-600 duration-200'>{name}</h1>
+                    <h1 className='text-black mb-1 font-bold text-lg hover:text-red-600 duration-200'>{title}</h1>
                 </Link>
                 <span className='text-[#53A26F] font-bold'>22 آذر, 1402</span>
             </div>

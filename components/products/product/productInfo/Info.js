@@ -62,10 +62,10 @@ const Info = () => {
       </h1>
       <div className="flex gap-2 my-4 items-center">
         <span className="text-gray-400 text-lg md:text-xl line-through font-bold">
-          {product.noOff} تومان
+          {product.noOff.toLocaleString()} تومان
         </span>
         <h1 className="font-extrabold text-2xl text-[#53A271]">
-          {product.price} تومان
+          {product.price.toLocaleString()} تومان
         </h1>
       </div>
       <div className="flex gap-2 mb-4 items-center">

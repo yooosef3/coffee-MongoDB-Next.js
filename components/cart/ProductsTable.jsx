@@ -6,7 +6,7 @@ const ProductsTable = () => {
   const cartProducts = useSelector((state) => state.cart.items);
 
   return (
-    <div className="w-[90%] md:w-[700px] lg:w-[700px] xl:w-[1000px] rounded-lg drop-shadow-lg gap-10 mx-auto mt-14 lg:mt-0 overflow-auto">
+    <div className="w-[90%] md:w-[700px] lg:w-[700px] xl:w-[1050px] max-h-[450px] rounded-lg drop-shadow-lg gap-10 mx-auto mt-14 lg:mt-0 overflow-y-auto">
       <table className="table-auto w-[1300px] lg:w-[700px] xl:w-[1000px]">
         <thead className="bg-gray-300 h-11">
           <tr className="text-right text-gray-500">

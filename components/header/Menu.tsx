@@ -19,9 +19,6 @@ const Menu = ({navbar}:NavbarPropType) => {
                 <Collections />
                 <Aroma />
                 <li className="hover:text-green-400 duration-150 cursor-pointer">
-                    <Link className="font-bold text-xl" href='/beans'>دانه های قهوه</Link>
-                </li>
-                <li className="hover:text-green-400 duration-150 cursor-pointer">
                     <Link className="font-bold text-xl" href='/blogs'>بلاگ</Link>
                 </li>
                 <Shop />

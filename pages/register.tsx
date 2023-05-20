@@ -1,4 +1,4 @@
-import React, {FC} from 'react';
+import React, { FC } from 'react';
 
 import Footer from '@/components/layout/Footer';
 import HeaderTemplate from '@/components/shared/HeaderTemplate';

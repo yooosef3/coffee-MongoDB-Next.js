@@ -58,9 +58,9 @@ const renderCartIcon = () => {
 
   return (
     <div
-      className={`md:w-[280px] group relative overflow-hidden ${
-        separate && "shadow-md hover:shadow-lg"
-      } duration-200 rounded-md `}
+      className={`w-full group relative overflow-hidden ${
+        separate && "shadow-md md:w-[280px] hover:shadow-lg"
+      } duration-200 rounded-md`}
     >
       <span
         dir="ltr"
@@ -73,13 +73,13 @@ const renderCartIcon = () => {
           href={`/products/${_id}`}
           className="group-hover:opacity-0 group-hover:hidden"
         >
-          <Image src={image[0]} width={450} height={500} alt="product" />
+          <Image className="w-full h-[250px] object-cover" src={image[0]} width={450} height={500} alt="product" />
         </Link>
         <Link
           href={`/products/${_id}`}
           className="hidden group-hover:opacity-100 group-hover:block"
         >
-          <Image src={image[1]} width={450} height={500} alt="product" />
+          <Image className="w-full h-[250px] object-cover" src={image[1]} width={450} height={500} alt="product" />
         </Link>
       </div>
       <div className="flex flex-col bg-white p-3 gap-3">
@@ -88,9 +88,9 @@ const renderCartIcon = () => {
             {name}
           </h1>
         </Link>
-        <div className="font-semibold text-md">
-          <span className="text-gray-400 mr-2 line-through">${noOff}USD</span>
-          <span className="text-[#54A06F] ">${price}USD</span>
+        <div className="font-semibold text-md flex gap-2">
+          <span className="text-gray-400 mr-2 line-through">{noOff.toLocaleString()} تومان</span>
+          <span className="text-[#54A06F] ">{price.toLocaleString()}تومان</span>
         </div>
         <div className="flex gap-3">
           <div className="flex text-yellow-500">

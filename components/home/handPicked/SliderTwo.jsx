@@ -4,11 +4,11 @@ import React, { useContext } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import { Autoplay } from "swiper";
+import { HomeContext } from "@/pages";
 import Product from "./Product";
-import { ProductsContext } from "../../../pages";
 
 const SliderTwo = () => {
-  const productsList = useContext(ProductsContext);
+  const {productsList} = useContext(HomeContext);
 
   return (
     <>

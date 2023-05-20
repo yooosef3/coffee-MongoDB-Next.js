@@ -1,7 +1,6 @@
 import Link from "next/link";
 import MenuCartList from "./MenuCartList";
 import React from "react";
-import { useDispatch } from "react-redux";
 
 type PropTypes = {
   toggle: boolean;

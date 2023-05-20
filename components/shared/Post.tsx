@@ -1,15 +1,18 @@
+import React, { useContext } from 'react';
+
 import { BiComment } from "react-icons/bi";
+import { BlogContext } from '@/pages/blogs/[blogId]';
 import { BsPinterest } from "react-icons/bs";
 import { FaFacebookF } from "react-icons/fa";
 import { FiInstagram } from "react-icons/fi";
 import Image from 'next/image';
 import { IoLogoTwitter } from "react-icons/io";
-import React from 'react';
 import bean1 from '../../public/images/The-Complete-Guide-on-Coffee-Beans-Processing.png'
 import bean2 from '../../public/images/coffee-beans.jpg'
 import bean3 from '../../public/images/coffee-beans-top-view-white-background-space-text.jpg'
 
 const Post = () => {
+    const blog = useContext(BlogContext);
     return (
         <div className="border-b border-slate-300 pb-10">
           <div className="flex gap-2 font-semibold text-[#51A06C]">
@@ -22,23 +25,12 @@ const Post = () => {
                 </div>
             </div>
           </div>
-          <h1 className="text-black font-bold text-xl lg:text-2xl mb-5">قهوه چطور تولید می شود؟</h1>
+          <h1 className="text-black font-bold text-xl lg:text-2xl mb-5">{blog.title}</h1>
           <div>
-            <Image className="rounded-md w-full hover:grayscale duration-200 cursor-pointer" alt='post' src={bean1} width={450} height={250}/>
+            <Image className="rounded-md w-full hover:grayscale duration-200 cursor-pointer" alt='post' src={blog.image} width={450} height={250}/>
           </div>
-          <p className="text-gray-500 mt-8">قهوه چطور تولید می شود؟ قهوه چطور تولید می شود؟ قهوه چطور تولید می شود؟ قهوه چطور تولید می شود؟ قهوه چطور تولید می شود؟ قهوه چطور تولید می شود؟ قهوه چطور تولید می شود؟ قهوه چطور تولید می شود؟ قهوه چطور تولید می شود؟ قهوه چطور تولید می شود؟ قهوه چطور تولید می شود؟ قهوه چطور تولید می شود؟ قهوه چطور تولید می شود؟ قهوه چطور تولید می شود؟ قهوه چطور تولید می شود؟ قهوه چطور تولید می شود؟ قهوه چطور تولید می شود؟ قهوه چطور تولید می شود؟ قهوه چطور تولید می شود؟ قهوه چطور تولید می شود؟ قهوه چطور تولید می شود؟ قهوه چطور تولید می شود؟ قهوه چطور تولید می شود؟ قهوه چطور تولید می شود؟ قهوه چطور تولید می شود؟ قهوه چطور تولید می شود؟ قهوه چطور تولید می شود؟ قهوه چطور تولید می شود؟</p>
-            <p className="text-[#51A06C] font-semibold w-[85%] mx-auto border-r-4 pr-4 my-7 border-[#51A06C]">قهوه چطور تولید می شود؟ قهوه چطور تولید می شود؟ قهوه چطور تولید می شود؟ قهوه چطور تولید می شود؟ قهوه چطور تولید می شود؟ قهوه چطور تولید می شود؟ قهوه چطور تولید می شود؟ قهوه چطور تولید می شود؟ قهوه چطور تولید می شود؟ قهوه چطور تولید می شود؟ قهوه چطور تولید می شود؟ قهوه چطور تولید می شود؟ قهوه چطور تولید می شود؟ قهوه چطور تولید می شود؟</p>
-          <p className="text-gray-500 mb-8">قهوه چطور تولید می شود؟ قهوه چطور تولید می شود؟ قهوه چطور تولید می شود؟ قهوه چطور تولید می شود؟ قهوه چطور تولید می شود؟ قهوه چطور تولید می شود؟ قهوه چطور تولید می شود؟ قهوه چطور تولید می شود؟ قهوه چطور تولید می شود؟ قهوه چطور تولید می شود؟ قهوه چطور تولید می شود؟ قهوه چطور تولید می شود؟ قهوه چطور تولید می شود؟ قهوه چطور تولید می شود؟ قهوه چطور تولید می شود؟ قهوه چطور تولید می شود؟ قهوه چطور تولید می شود؟ قهوه چطور تولید می شود؟ قهوه چطور تولید می شود؟ قهوه چطور تولید می شود؟ قهوه چطور تولید می شود؟ قهوه چطور تولید می شود؟ قهوه چطور تولید می شود؟ قهوه چطور تولید می شود؟ قهوه چطور تولید می شود؟ قهوه چطور تولید می شود؟ قهوه چطور تولید می شود؟ قهوه چطور تولید می شود؟</p>
-          <div className="flex flex-col md:flex-row gap-6">
-            <div className="md:w-[50%]">
-                <Image className="h-[240px] rounded-md" alt='post' src={bean2} width={450} height={250}/>
-            </div>
-            <div className="md:w-[50%]">
-                <Image className="h-[240px] rounded-md" alt='post' src={bean3} width={450} height={250}/>
-            </div>
-          </div>
-          <p className="text-gray-500 my-8">قهوه چطور تولید می شود؟ قهوه چطور تولید می شود؟ قهوه چطور تولید می شود؟ قهوه چطور تولید می شود؟ قهوه چطور تولید می شود؟ قهوه چطور تولید می شود؟ قهوه چطور تولید می شود؟ قهوه چطور تولید می شود؟ قهوه چطور تولید می شود؟ قهوه چطور تولید می شود؟ قهوه چطور تولید می شود؟ قهوه چطور تولید می شود؟ قهوه چطور تولید می شود؟ قهوه چطور تولید می شود؟ قهوه چطور تولید می شود؟ قهوه چطور تولید می شود؟ قهوه چطور تولید می شود؟ قهوه چطور تولید می شود؟ قهوه چطور تولید می شود؟ قهوه چطور تولید می شود؟ قهوه چطور تولید می شود؟ قهوه چطور تولید می شود؟ قهوه چطور تولید می شود؟ قهوه چطور تولید می شود؟ قهوه چطور تولید می شود؟ قهوه چطور تولید می شود؟ قهوه چطور تولید می شود؟ قهوه چطور تولید می شود؟</p>
-          <h1 className='text-black font-bold text-lg mb-4'>تگ های محبوب</h1>
+          <p className="text-gray-500 mt-8">{blog.content}</p>
+          <h1 className='text-black font-bold text-lg my-4'>تگ های محبوب</h1>
             <div className="flex gap-2">
                 <span className="bg-white text-slate-400 w-fit font-bold px-3 py-1 rounded-md hover:text-white hover:bg-slate-800 duration-300 cursor-pointer">عربیکا</span>
                 <span className="bg-white text-slate-400 w-fit font-bold px-3 py-1 rounded-md hover:text-white hover:bg-slate-800 duration-300 cursor-pointer">قهوه کردی</span>

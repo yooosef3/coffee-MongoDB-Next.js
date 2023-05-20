@@ -1,13 +1,17 @@
+import React, { useContext } from 'react';
+
+import { BlogContext } from '@/pages/blogs/[blogId]';
 import HeaderTemplate from '../shared/HeaderTemplate';
 import PostContent from '../shared/PostContent';
 import PostSidebar from '../shared/PostSidebar';
-import React from 'react';
 import Slider from '../home/blogs/Slider'
 
 const BlogDetails = () => {
+    const blog = useContext(BlogContext);
+
     return (
         <div>
-            <HeaderTemplate background='/images/top-view-tasty-coffee-with-coffee-beans.jpg' header='بلاگ'/>
+            <HeaderTemplate background='/images/top-view-tasty-coffee-with-coffee-beans.jpg' header={blog.title}/>
             <div className='w-[90%] md:w-[700px] lg:w-[920px] xl:w-[1200px] gap-10 mx-auto py-14 grid grid-cols-1 lg:grid-cols-12'>
                 <PostSidebar />
                 <PostContent />
@@ -17,7 +21,6 @@ const BlogDetails = () => {
                 <p className="text-gray-400 mb-8 text-center font-bold">از فروشگاه ما دیدن کنید تا خلاقیت های شگفت انگیز طراحان ما را ببینید</p>
                 <Slider />
             </section>
-
         </div>
     );
 };
