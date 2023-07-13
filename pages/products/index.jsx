@@ -1,8 +1,9 @@
 import React, { createContext } from "react";
 
 import HeaderTemplate from "@/components/shared/HeaderTemplate";
+import Product from "@/models/Product";
 import Products from "../../components/products/productsList/Products";
-import axios from "axios";
+import dbConnect from "@/lib/db";
 
 export const ProductsContext = createContext([]);
 const index = ({ productsList }) => {
@@ -19,11 +20,12 @@ const index = ({ productsList }) => {
   );
 };
 export const getServerSideProps = async () => {
-  const res = await axios.get("http://localhost:3000/api/products");
+  dbConnect();
+  const products = await Product.find({});
 
   return {
     props: {
-      productsList: res.data,
+      productsList: JSON.parse(JSON.stringify(products)),
     },
   };
 };

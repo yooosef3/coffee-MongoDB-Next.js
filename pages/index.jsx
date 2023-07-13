@@ -1,18 +1,21 @@
+import Bean from '../models/Bean';
 import Beans from "@/components/home/beanSlider/Beans";
+import Blog from '../models/Blog';
 import Blogs from "@/components/home/blogs/Blogs";
 import BrazilCoffee from "@/components/home/Brazil/BrazilCoffee";
 import HandPicked from "@/components/home/handPicked/HandPicked";
 import Head from "next/head";
+import Product from '../models/Product';
 import Slider from "@/components/home/top-slider/Slider";
 import Sponsors from "@/components/home/sponsors/Sponsors";
 import Testimonials from "@/components/home/testimonials/Testimonials";
 import Trending from "@/components/home/trending/Trending";
-import axios from "axios";
 import { createContext } from "react";
+import dbConnect from '../lib/db';
 
 export const HomeContext = createContext();
 
-export default function Home({productsList, beansList, blogsList}) {
+export default function Home({ productsList, beansList, blogsList }) {
   return (
     <>
       <Head>
@@ -37,17 +40,18 @@ export default function Home({productsList, beansList, blogsList}) {
 }
 
 export const getServerSideProps = async () => {
-  const [productsRes, beansRes, blogsRes] = await Promise.all([
-    axios.get("http://localhost:3000/api/products"),
-    axios.get("http://localhost:3000/api/beans"),
-    axios.get("http://localhost:3000/api/blogs"),
-  ]);
+  
+
+  dbConnect();
+  const products = await Product.find({});
+  const beans = await Bean.find({});
+  const blogs = await Blog.find({});
 
   return {
     props: {
-      productsList: productsRes.data,
-      beansList: beansRes.data,
-      blogsList: blogsRes.data,
+      productsList: JSON.parse(JSON.stringify(products)),
+      beansList: JSON.parse(JSON.stringify(beans)),
+      blogsList: JSON.parse(JSON.stringify(blogs)),
     },
   };
 };

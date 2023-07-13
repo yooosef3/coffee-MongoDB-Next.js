@@ -1,5 +1,6 @@
 import React, { createContext } from "react";
 
+import Blog from "@/models/Blog";
 import BlogDetails from "@/components/blogs/BlogDetails";
 import Head from "next/head";
 import axios from "axios";
@@ -22,13 +23,11 @@ const blogDetails = ({ blog }) => {
 };
 
 export const getServerSideProps = async ({ params }) => {
-  const res = await axios.get(
-    `http://localhost:3000/api/blogs/${params.blogId}`
-  );
+  const blog = await Blog.findOne({_id:params.blogId});
 
   return {
     props: {
-      blog: res.data,
+      blog: JSON.parse(JSON.stringify(blog)),
     },
   };
 };

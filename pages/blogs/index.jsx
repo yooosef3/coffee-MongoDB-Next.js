@@ -1,7 +1,9 @@
+import Blog from "@/models/Blog";
 import Blogs from "@/components/blogs/Blogs";
 import Head from "next/head";
 import React from "react";
 import axios from "axios";
+import dbConnect from "@/lib/db";
 
 const index = ({ blogsList }) => {
   return (
@@ -18,11 +20,12 @@ const index = ({ blogsList }) => {
 };
 
 export const getServerSideProps = async () => {
-  const res = await axios.get("http://localhost:3000/api/blogs");
+  dbConnect();
+  const blogs = await Blog.find({});
 
   return {
     props: {
-      blogsList: res.data,
+      blogsList: JSON.parse(JSON.stringify(blogs)),
     },
   };
 };

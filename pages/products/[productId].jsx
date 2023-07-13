@@ -2,6 +2,7 @@ import React, { createContext } from "react";
 
 import DesReview from "@/components/products/product/descReview/DesReview";
 import HeaderTemplate from "@/components/shared/HeaderTemplate";
+import Product from "@/models/Product";
 import SliderInfo from "@/components/products/product/productInfo/SliderInfo";
 import Trending from "@/components/home/trending/Trending";
 import axios from "axios";
@@ -28,13 +29,11 @@ const ProductDetails = ({ product }) => {
 export default ProductDetails;
 
 export const getServerSideProps = async ({ params }) => {
-  const res = await axios.get(
-    `http://localhost:3000/api/products/${params.productId}`
-  );
+  const product = await Product.findOne({_id:params.productId});
 
   return {
     props: {
-      product: res.data,
+      product: JSON.parse(JSON.stringify(product)),
     },
   };
 };
