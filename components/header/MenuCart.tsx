@@ -13,8 +13,6 @@ const MenuCart = ({ products, toggle }: PropTypes) => {
     0
   );
 
-  
-
   return (
     <div
       className={`fixed w-[270px] bg-white max-h-[500px] ${

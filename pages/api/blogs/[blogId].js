@@ -27,7 +27,7 @@ export default async function handler(req, res){
            const blog = await Blog.create(req.body);
            res.status(201).json(blog); 
         } catch (error) {
-            res.status(500).json(error)
+            res.status(500).json({error: error.message})
         }
     }
 }

@@ -31,7 +31,7 @@ const Product = ({ product }) => {
               height={80}
               className="rounded-[25%]"
               alt="product"
-              src={image[0]}
+              src={image?.[0]}
             />
             <h1 className="mr-2">{name}</h1>
           </div>

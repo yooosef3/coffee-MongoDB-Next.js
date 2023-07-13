@@ -13,14 +13,14 @@ const MenuCartList = ({ products }) => {
   return (
     <div className="overflow-y-auto scrollbar-thin">
       {products.length > 0 &&
-        products.map((product) => (
+        products?.map((product) => (
           <div key={product._id}>
             <div className="flex items-center gap-5 border-b pb-4">
               <Link href={`/products/${product._id}`}>
                 <Image
                   alt="coffee"
                   className="border"
-                  src={product.image[0]}
+                  src={product?.image?.[0]}
                   width={100}
                   height={100}
                 />

@@ -1,8 +1,11 @@
 import Link from "next/link";
 import React from "react";
+import { useRouter } from "next/navigation";
 import { useSelector } from "react-redux";
 
 const Total = () => {
+
+  const router = useRouter();
   const cartProducts = useSelector((state) => state.cart.items);
   const totalProducts = cartProducts.reduce(
     (ac, product) => ac + product.quantity,
@@ -12,6 +15,9 @@ const Total = () => {
     (ac, product) => ac + product.quantity * product.price,
     0
   );
+
+
+  
   return (
     <div className="lg:w-[30%]">
       <div className="bg-white w-[80%] rounded-lg drop-shadow-lg p-10 mx-auto">
@@ -35,11 +41,9 @@ const Total = () => {
           <span className="text-[#53A06D] font-bold">{totalPrice} تومان</span>
         </div>
         {cartProducts.length ? (
-          <Link href="/payment">
-            <h1 className="rounded-md text-white bg-[#53A06D] mb-2 font-bold text-center py-2 hover:bg-slate-800 duration-200 cursor-pointer">
-              تسویه حساب
-            </h1>
-          </Link>
+            <button type="button" onClick={() => router.push('login?redirect=/cart')} className="rounded-md text-white bg-[#53A06D] mb-2 w-full font-bold text-center py-2 hover:bg-slate-800 duration-200 cursor-pointer">
+              پرداخت   
+            </button>
         ) : (
           <h1 className="rounded-md bg-slate-300 text-slate-600 cursor-not-allowed mb-2 font-bold text-center py-2">
             تسویه حساب

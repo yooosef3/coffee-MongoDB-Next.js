@@ -4,7 +4,7 @@ import Footer from "@/components/layout/Footer";
 import HeaderTemplate from "@/components/shared/HeaderTemplate";
 import Login from "@/components/login/Login";
 
-const login = () => {
+const LoginScreen = () => {
   return (
   <div>
     <HeaderTemplate 
@@ -16,9 +16,9 @@ const login = () => {
   )
 };
 
-export default login;
+export default LoginScreen;
 
-login.getLayout = function PageLayout(page:FC) {
+LoginScreen.getLayout = function PageLayout(page:FC) {
   return(
       <>
           {page}
