@@ -28,7 +28,7 @@ const Total = () => {
       };
     });
     
-    const { data } = await axios.post("http://localhost:3000/api/checkout", {
+    const { data } = await axios.post("https://coffee-mongo-db-next-js.vercel.app/api/checkout", {
       lineItems,
     });
     
