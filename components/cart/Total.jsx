@@ -1,23 +1,50 @@
+import { useDispatch, useSelector } from "react-redux";
+
 import Link from "next/link";
 import React from "react";
-import { useRouter } from "next/navigation";
-import { useSelector } from "react-redux";
+import axios from "axios";
+import { clearCart } from "@/redux/cartSlice";
+import { loadStripe } from "@stripe/stripe-js";
 
 const Total = () => {
-
-  const router = useRouter();
-  const cartProducts = useSelector((state) => state.cart.items);
-  const totalProducts = cartProducts.reduce(
+  const dispatch = useDispatch();
+  
+  const products = useSelector((state) => state.cart.items);
+  const stripePromise = loadStripe(
+    process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
+    );
+    const handleCheckout = async () => {
+    dispatch(clearCart());
+    const lineItems = products?.map((item) => {
+      return {
+        price_data: {
+          currency: "usd",
+          product_data: {
+            name: item.name,
+          },
+          unit_amount: item.price * 100, // because stripe interprets price in cents
+        },
+        quantity: item.quantity,
+      };
+    });
+    
+    const { data } = await axios.post("http://localhost:3000/api/checkout", {
+      lineItems,
+    });
+    
+    const stripe = await stripePromise;
+    
+    await stripe.redirectToCheckout({ sessionId: data.id });
+  };
+  const totalProducts = products.reduce(
     (ac, product) => ac + product.quantity,
     0
   );
-  const totalPrice = cartProducts.reduce(
+  const totalPrice = products.reduce(
     (ac, product) => ac + product.quantity * product.price,
     0
   );
 
-
-  
   return (
     <div className="lg:w-[30%]">
       <div className="bg-white w-[80%] rounded-lg drop-shadow-lg p-10 mx-auto">
@@ -38,12 +65,18 @@ const Total = () => {
         </div>
         <div className="mt-5 mb-10">
           <span className="text-black font-bold ml-3">هزینه کل: </span>
-          <span className="text-[#53A06D] font-bold">{totalPrice} تومان</span>
+          <span className="text-[#53A06D] font-bold">
+            {totalPrice.toLocaleString()} تومان
+          </span>
         </div>
-        {cartProducts.length ? (
-            <button type="button" onClick={() => router.push('login?redirect=/cart')} className="rounded-md text-white bg-[#53A06D] mb-2 w-full font-bold text-center py-2 hover:bg-slate-800 duration-200 cursor-pointer">
-              پرداخت   
-            </button>
+        {products.length ? (
+          <button
+            type="button"
+            onClick={handleCheckout}
+            className="rounded-md text-white bg-[#53A06D] mb-2 w-full font-bold text-center py-2 hover:bg-slate-800 duration-200 cursor-pointer"
+          >
+            پرداخت
+          </button>
         ) : (
           <h1 className="rounded-md bg-slate-300 text-slate-600 cursor-not-allowed mb-2 font-bold text-center py-2">
             تسویه حساب

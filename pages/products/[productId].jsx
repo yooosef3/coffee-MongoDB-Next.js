@@ -5,7 +5,6 @@ import HeaderTemplate from "@/components/shared/HeaderTemplate";
 import Product from "@/models/Product";
 import SliderInfo from "@/components/products/product/productInfo/SliderInfo";
 import Trending from "@/components/home/trending/Trending";
-import axios from "axios";
 
 export const ProductContext = createContext();
 const ProductDetails = ({ product }) => {

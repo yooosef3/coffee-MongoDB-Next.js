@@ -37,7 +37,7 @@ const MenuCart = ({ products, toggle }: PropTypes) => {
         <div className="flex justify-between border-b pb-2">
           <h1 className="text-black font-bold">مجموع:</h1>
           <div className="text-green-600 font-bold">
-            <span>{totalPrice} تومان</span>
+            <span>{totalPrice.toLocaleString()} تومان</span>
           </div>
         </div>
       )}
@@ -50,21 +50,21 @@ const MenuCart = ({ products, toggle }: PropTypes) => {
             >
               مشاهده سبد خرید
             </Link>
-            <Link
+            {/* <Link
               className="text-white font-bold text-center py-2 bg-zinc-800 rounded-sm hover:bg-emerald-600 duration-200"
               href="/payment"
             >
               تسویه
-            </Link>
+            </Link> */}
           </>
         ) : (
           <>
             <h1 className="text-slate-600 font-bold text-center py-2 bg-slate-300 rounded-sm cursor-not-allowed">
               مشاهده سبد خرید
             </h1>
-            <h1 className="text-slate-600 font-bold text-center py-2 bg-slate-300 rounded-sm cursor-not-allowed">
+            {/* <h1 className="text-slate-600 font-bold text-center py-2 bg-slate-300 rounded-sm cursor-not-allowed">
               تسویه
-            </h1>
+            </h1> */}
           </>
         )}
       </div>
