@@ -59,13 +59,11 @@ const list = [
     type: "usefull",
     title: "لینک های مفید",
     links: [
-      { id: 1, name: "درباره ما" },
-      { id: 2, name: "تماس با ما" },
-      { id: 3, name: "FAQ" },
-      { id: 4, name: "قوانین پرداخت" },
-      { id: 5, name: "سیاست حفظ حریم خصوصی" },
-      { id: 6, name: "سیاست خرید" },
-      { id: 7, name: "نقشه" },
+      {route: '/aboutus' , id: 1, name: "درباره ما" },
+      {route: '/contact' , id: 2, name: "تماس با ما" },
+      {route: '/faq' , id: 3, name: "FAQ" },
+      {route: '/paymentRules' , id: 4, name: "قوانین پرداخت" },
+      {route: '/terms' , id: 5, name: "سیاست حفظ حریم خصوصی" },
     ],
   },
 ];

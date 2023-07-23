@@ -89,8 +89,8 @@ const renderCartIcon = () => {
           </h1>
         </Link>
         <div className="font-semibold text-md flex gap-2">
-          <span className="text-gray-400 mr-2 line-through">{noOff.toLocaleString()} تومان</span>
-          <span className="text-[#54A06F] ">{price.toLocaleString()}تومان</span>
+          <span className="text-gray-400 mr-2 line-through">{noOff.toLocaleString().replace(/\d/g, (d) => "۰۱۲۳۴۵۶۷۸۹"[d])} تومان</span>
+          <span className="text-[#54A06F] ">{price.toLocaleString().replace(/\d/g, (d) => "۰۱۲۳۴۵۶۷۸۹"[d])}تومان</span>
         </div>
         <div className="flex gap-3">
           <div className="flex text-yellow-500">

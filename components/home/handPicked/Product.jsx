@@ -30,9 +30,9 @@ const Product = ({ product, two }) => {
         </Link>
         <div className="font-semibold text-lg flex gap-2">
           <span className="text-gray-400 line-through">
-            {product.price.toLocaleString()} تومان
+            {product.price.toLocaleString().replace(/\d/g, (d) => "۰۱۲۳۴۵۶۷۸۹"[d])} تومان
           </span>
-          <span className="text-[#54A06F]">{product.noOff.toLocaleString()} تومان</span>
+          <span className="text-[#54A06F]">{product.noOff.toLocaleString().replace(/\d/g, (d) => "۰۱۲۳۴۵۶۷۸۹"[d])} تومان</span>
         </div>
         <div className="flex gap-3">
           <div className="flex text-yellow-500">

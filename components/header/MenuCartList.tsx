@@ -33,7 +33,7 @@ const MenuCartList = ({ products }) => {
                 <span className="text-gray-700">{product.quantity}</span>
                 <div className="flex gap-5">
                   <div className="text-green-600 font-bold text-sm">
-                    <span>{product.price.toLocaleString()} تومان</span>
+                    <span>{product.price.toLocaleString().replace(/\d/g, (d) => "۰۱۲۳۴۵۶۷۸۹"[d])} تومان</span>
                   </div>
                   <CgTrash
                     onClick={() => handleRemoveItem(product._id)}

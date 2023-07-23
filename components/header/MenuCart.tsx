@@ -38,7 +38,7 @@ const MenuCart = ({ products, toggle, setToggle }: PropTypes) => {
         <div className="flex justify-between border-b pb-2">
           <h1 className="text-black font-bold">مجموع:</h1>
           <div className="text-green-600 font-bold">
-            <span>{totalPrice.toLocaleString()} تومان</span>
+            <span>{totalPrice.toLocaleString().replace(/\d/g, (d) => "۰۱۲۳۴۵۶۷۸۹"[d])} تومان</span>
           </div>
         </div>
       )}

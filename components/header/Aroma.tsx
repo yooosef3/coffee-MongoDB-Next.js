@@ -13,11 +13,11 @@ const Aroma = () => {
                 <IoIosArrowDown />
             </div>
             <div className="bg-white hidden group-hover:flex rounded-lg gap-5 p-10 absolute">
-                <Link href='/' className="flex flex-col items-center gap-4">
+                <Link href='/products/642c821ccc081beb5322bbd9' className="flex flex-col items-center gap-4">
                     <Image className="rounded-lg hover:grayscale duration-200" alt="coffee" src={coffee3} width={700} height={400}/>
                     <h1 className="text-gray-400 font-bold">عربیکا برشته</h1>
                 </Link>
-                <Link href='/' className="flex flex-col items-center gap-4">
+                <Link href='/products/642c7d04cc081beb5322bbd6' className="flex flex-col items-center gap-4">
                     <Image className="rounded-lg hover:grayscale duration-200" alt="coffee" src={coffee4} width={700} height={400}/>
                     <h1 className="text-gray-400 font-bold">عربیکا سبز</h1>
                 </Link>

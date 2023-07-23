@@ -19,13 +19,13 @@ const Collections = () => {
                             <h1 className="text-black mb-4 font-bold ">عربیکا سبز</h1>
                             <ul className="flex flex-col gap-2">
                                 <li>
-                                    <Link href='/' className="text-gray-400 font-bold hover:text-green-500 duration-200">آمریکانو</Link>
+                                    <Link href='/products/642c6922cc081beb5322bbd0' className="text-gray-400 font-bold hover:text-green-500 duration-200">آمریکانو</Link>
                                 </li>
                                 <li>
-                                    <Link href='/' className="text-gray-400 font-bold hover:text-green-500 duration-200">کاپوچینو</Link>
+                                    <Link href='/products/642c6f73cc081beb5322bbd1' className="text-gray-400 font-bold hover:text-green-500 duration-200">کاپوچینو</Link>
                                 </li>
                                 <li>
-                                    <Link href='/' className="text-gray-400 font-bold hover:text-green-500 duration-200">دابل اسپرسو</Link>
+                                    <Link href='/products/642c15dd66e64c7b9cde07ed' className="text-gray-400 font-bold hover:text-green-500 duration-200">دابل اسپرسو</Link>
                                 </li>
                             </ul>
                         </div>
@@ -33,19 +33,19 @@ const Collections = () => {
                         <h1 className="text-black mb-4 font-bold ">قهوه برشته لایت</h1>
                             <ul className="flex flex-col gap-2">
                                 <li>
-                                    <Link href='/' className="text-gray-400 font-bold hover:text-green-500 duration-200">لاته</Link>
+                                    <Link href='/products/642c63fecc081beb5322bbcf' className="text-gray-400 font-bold hover:text-green-500 duration-200">لاته</Link>
                                 </li>
                                 <li>
-                                    <Link href='/' className="text-gray-400 font-bold hover:text-green-500 duration-200">ماکیاتو</Link>
+                                    <Link href='/products/642c781acc081beb5322bbd3' className="text-gray-400 font-bold hover:text-green-500 duration-200">ماکیاتو</Link>
                                 </li>
                                 <li>
-                                    <Link href='/' className="text-gray-400 font-bold hover:text-green-500 duration-200">شکلات نعنایی</Link>
+                                    <Link href='/products/642c781acc081beb5322bbd3' className="text-gray-400 font-bold hover:text-green-500 duration-200">شکلات نعنایی</Link>
                                 </li>
                             </ul>
                         </div>
                     </div>
                     <div>
-                        <Link href='/'>
+                        <Link href='/products'>
                             <Image className="rounded-lg hover:grayscale duration-200" alt="cofee" src={coffee1} width={500} height={200}/>
                         </Link>
                     </div>
@@ -56,13 +56,13 @@ const Collections = () => {
                             <h1 className='text-black mb-4 font-bold'>قهوه برشته مدیوم</h1>
                             <ul className="flex flex-col gap-2">
                                 <li>
-                                    <Link href='/' className="text-gray-400 font-bold hover:text-green-500 duration-200">موکا</Link>
+                                    <Link href='/products/642c7bd5cc081beb5322bbd5' className="text-gray-400 font-bold hover:text-green-500 duration-200">موکا</Link>
                                 </li>
                                 <li>
-                                    <Link href='/' className="text-gray-400 font-bold hover:text-green-500 duration-200">کارامل</Link>
+                                    <Link href='/products/642c7463cc081beb5322bbd2' className="text-gray-400 font-bold hover:text-green-500 duration-200">کارامل</Link>
                                 </li>
                                 <li>
-                                    <Link href='/' className="text-gray-400 font-bold hover:text-green-500 duration-200">موکای سفید</Link>
+                                    <Link href='/products/642c7bd5cc081beb5322bbd5' className="text-gray-400 font-bold hover:text-green-500 duration-200">موکای سفید</Link>
                                 </li>
                             </ul>
                         </div>
@@ -70,19 +70,19 @@ const Collections = () => {
                             <h1 className='text-black mb-4 font-bold'>قهوه برشته تیره</h1>
                             <ul className="flex flex-col gap-2">
                                 <li>
-                                    <Link href='/' className="text-gray-400 font-bold hover:text-green-500 duration-200">موکا</Link>
+                                    <Link href='/products/642c7bd5cc081beb5322bbd5' className="text-gray-400 font-bold hover:text-green-500 duration-200">موکا</Link>
                                 </li>
                                 <li>
-                                    <Link href='/' className="text-gray-400 font-bold hover:text-green-500 duration-200">وانیل</Link>
+                                    <Link href='/products/642c7463cc081beb5322bbd2' className="text-gray-400 font-bold hover:text-green-500 duration-200">وانیل</Link>
                                 </li>
                                 <li>
-                                    <Link href='/' className="text-gray-400 font-bold hover:text-green-500 duration-200">موکای سفید</Link>
+                                    <Link href='/products/642c8055cc081beb5322bbd8' className="text-gray-400 font-bold hover:text-green-500 duration-200">موکای سفید</Link>
                                 </li>
                             </ul>
                         </div>
                     </div>
                     <div>
-                        <Link href='/'>
+                        <Link href='/products'>
                            <Image className="rounded-lg hover:grayscale duration-200" alt="cofee" src={coffee2} width={500} height={200}/>
                         </Link>
                     </div>
