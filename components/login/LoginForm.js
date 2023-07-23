@@ -1,6 +1,7 @@
-import { FcGoogle } from "react-icons/fc";
+import { BsGithub } from "react-icons/bs";
 import Link from "next/link";
 import React from "react";
+import { signIn } from "next-auth/react";
 import { useForm } from "react-hook-form";
 
 const LoginForm = () => {
@@ -15,9 +16,9 @@ const LoginForm = () => {
   return (
     <form
       onSubmit={handleSubmit(submitHandler)}
-      className="bg-white w-[380px] md:w-[450px] mx-auto rounded-md shadow-lg p-5"
+      className="flex flex-col justify-center bg-white w-[380px] h-32 md:w-[450px] mx-auto rounded-md shadow-lg p-5"
     >
-      <h1 className="text-black font-bold text-center text-2xl mb-11">ورود</h1>
+      {/* <h1 className="text-black font-bold text-center text-2xl mb-11">ورود</h1>
 
       <div className="flex flex-col mb-4">
         <label htmlFor="email" className="text-gray-600">
@@ -82,11 +83,11 @@ const LoginForm = () => {
         className="bg-blue-600 w-full h-12 rounded-md mb-2 mt-16 text-lg font-bold hover:bg-slate-800 duration-200"
       >
         ورود
-      </button>
-      <div className="group flex justify-center items-center gap-2 bg-blue-100 hover:bg-blue-300 duration-200 cursor-pointer rounded-md h-11">
-        <FcGoogle className="text-2xl" />
-        <h1 className="text-lg text-blue-800 font-bold group-hover:text-blue-900 duration-200">
-          ورود با Google
+      </button> */}
+      <div onClick={() => signIn("github", { callbackUrl: "/" })} className="flex justify-center items-center gap-3 bg-black hover:bg-gray-800 duration-200 cursor-pointer rounded-md h-11">
+        <BsGithub className="text-3xl" />
+        <h1 className="text-lg font-bold duration-200">
+          ورود با گیت هاب
         </h1>
       </div>
     </form>

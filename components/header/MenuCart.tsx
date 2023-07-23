@@ -5,9 +5,10 @@ import React from "react";
 type PropTypes = {
   toggle: boolean;
   products: [any];
+  setToggle: any
 };
 
-const MenuCart = ({ products, toggle }: PropTypes) => {
+const MenuCart = ({ products, toggle, setToggle }: PropTypes) => {
   const totalPrice = products.reduce(
     (ac, product) => ac + product.quantity * product.price,
     0
@@ -15,9 +16,9 @@ const MenuCart = ({ products, toggle }: PropTypes) => {
 
   return (
     <div
-      className={`fixed w-[270px] bg-white max-h-[500px] ${
+      className={`fixed top-28 right-12 md:top-20 w-[270px] bg-white max-h-[500px] ${
         toggle ? "flex flex-col" : "hidden"
-      }  gap-4 rounded-lg p-5 right-1`}
+      } shadow-lg gap-4 rounded-lg p-5 right-1`}
     >
       {products.length ? (
         <h1 className="text-gray-500 border-b pb-2">
@@ -47,6 +48,7 @@ const MenuCart = ({ products, toggle }: PropTypes) => {
             <Link
               className="text-white font-bold text-center py-2 bg-zinc-800 rounded-sm hover:bg-emerald-600 duration-200"
               href="/cart"
+              onClick={()=> setToggle(false)}
             >
               مشاهده سبد خرید
             </Link>

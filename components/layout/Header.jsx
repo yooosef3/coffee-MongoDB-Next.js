@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { signOut, useSession } from "next-auth/react";
 
 import { BsXLg } from "react-icons/bs";
 import { CgMenuRight } from "react-icons/cg";
@@ -23,7 +24,7 @@ const Header = () => {
   const [openSearch, setOpenSearch] = useState(false);
   const [searched, setSearched] = useState("");
   const [navbar, setNavbar] = useState(false);
-
+  const { data: session, status } = useSession();
   const products = useSelector((state) => state.cart.items);
 
   const changeBackground = () => {
@@ -82,40 +83,56 @@ const Header = () => {
               <div className="relative" onClick={() => setToggle(!toggle)}>
                 <FiShoppingCart className="cursor-pointer text-2xl hover:text-green-400 duration-200" />
                 <span
-                  className={`absolute font-extrabold ${products.length === 0 ? 'text-red-600' : 'text-green-600'}
+                  className={`absolute font-extrabold ${
+                    products.length === 0 ? "text-red-600" : "text-green-600"
+                  }
                    -top-3 -right-2`}
                 >
                   {products.length}
                 </span>
               </div>
-              <MenuCart products={products} toggle={toggle} />
+              <MenuCart products={products} setToggle={setToggle} toggle={toggle} />
             </div>
-            <div>
-              <HiUser
+            {status === "loading" ? (
+              <div>Loading...</div>
+            ) : session ? (
+              <div
                 onClick={() => setOpen(!open)}
-                className="cursor-pointer text-2xl hover:text-green-400 duration-200"
-              />
-              <ul
-                className={`fixed ${
-                  open ? "flex flex-col" : "hidden"
-                } left-0 md:left-auto p-4 gap-2 bg-white rounded-lg `}
+                className="relative flex italic items-center gap-3 text-gray-700 hover:text-[#045868] duration-300 cursor-pointer"
               >
-                <li>
-                  <Link href="/login">
-                    <p className="text-gray-400 hover:text-green-500 font-bold duration-200">
-                      ورود
-                    </p>
+                <Image
+                  className="rounded-full w-[25px] md:w-[35px] h-[25px] md:h-[35px] ring ring-[#935328]"
+                  alt="account"
+                  width={35}
+                  height={35}
+                  src={session.user.image}
+                />
+                <h3 className=" font-bold text-white text-sm md:text-base pt-2">
+                  {session.user.name.split(' ')[0]}
+                </h3>
+                <div
+                  className={`absolute overflow-hidden top-10 ${
+                    !open && "hidden"
+                  } bg-white shadow-md w-full rounded-md`}
+                >
+                  <Link href="/">
+                    <h3 className="text-gray-700 py-1 pr-3 hover:text-gray-400 hover:bg-gray-50 duration-300 cursor-pointer">
+                      خانه
+                    </h3>
                   </Link>
-                </li>
-                <li>
-                  <Link href="/register">
-                    <p className="text-gray-400 hover:text-green-500 font-bold duration-200">
-                      ثبت نام
-                    </p>
-                  </Link>
-                </li>
-              </ul>
-            </div>
+                  <h3
+                    onClick={() => signOut()}
+                    className="text-red-700 py-1 pr-3 hover:text-red-800 hover:bg-gray-50 duration-300 cursor-pointer"
+                  >
+                    خروج
+                  </h3>
+                </div>
+              </div>
+            ) : (
+              <Link href="/login">
+                <HiUser className="text-2xl hover:text-green-400 duration-300 cursor-pointer" />
+              </Link>
+            )}
           </div>
         </div>
         <Menu navbar={navbar} />

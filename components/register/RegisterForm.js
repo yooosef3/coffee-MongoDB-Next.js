@@ -1,9 +1,12 @@
 import { FcGoogle } from "react-icons/fc";
 import Link from "next/link";
 import React from "react";
+import { useAuthContext } from "@/context/authContext";
 import { useForm } from "react-hook-form";
 
 const RegisterForm = () => {
+  const { handleRegister } = useAuthContext();
+
   const {
     handleSubmit,
     register,
@@ -11,7 +14,10 @@ const RegisterForm = () => {
     formState: { errors },
   } = useForm();
 
-  const submitHandler = async ({ name, email, password }) => {};
+  const submitHandler = async (e, { name, email, password }) => {
+    const data = { name, email, password };
+    handleRegister(data, e);
+  };
 
   return (
     <form
