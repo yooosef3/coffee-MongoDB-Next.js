@@ -3,7 +3,6 @@ import React, { createContext } from "react";
 import Blog from "@/models/Blog";
 import BlogDetails from "@/components/blogs/BlogDetails";
 import Head from "next/head";
-import axios from "axios";
 
 export const BlogContext = createContext(null);
 
