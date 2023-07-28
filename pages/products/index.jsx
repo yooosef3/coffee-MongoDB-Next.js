@@ -19,10 +19,14 @@ const index = ({ productsList }) => {
     </div>
   );
 };
-export const getServerSideProps = async () => {
+export const getServerSideProps = async ({ query }) => {
   dbConnect();
-  const products = await Product.find({});
+  const page = parseInt(query.page) || 1;
+  const limit = parseInt(query.limit) || 14;
+  const skip = (page - 1) * limit;
 
+  const products = await Product.find({}).skip(skip).limit(limit);
+  
   return {
     props: {
       productsList: JSON.parse(JSON.stringify(products)),
