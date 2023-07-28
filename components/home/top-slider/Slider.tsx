@@ -45,7 +45,7 @@ const Slider = () => {
                                 <h1 className="text-6xl font-semibold">{slide.title}</h1>
                                 <Image alt="leaf" src={leaf} width={150} height={50}/>
                                 <p className="hidden md:block md:text-xl w-[80%] leading-9 ">{slide.description}</p>
-                                <Link href='/' className="border border-y-yellow-100 font-bold py-3 px-5 hover:bg-yellow-600 duration-200 hover:border-yellow-600 text-2xl">خرید کن</Link>
+                                <Link href='/products' className="border border-y-yellow-100 font-bold py-3 px-5 hover:bg-yellow-600 duration-200 hover:border-yellow-600 text-2xl">خرید کن</Link>
                             </div>
                       </SwiperSlide> 
                 ))

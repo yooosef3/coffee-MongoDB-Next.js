@@ -38,7 +38,7 @@ const BrazilCoffee = () => {
           گرفته است.
         </p>
         <Link
-          href="/"
+          href="/products"
           className="bg-[#54A06F] text-xl px-5 py-1 rounded-md font-bold hover:bg-white border border-[#54A06F] hover:text-gray-600 duration-200"
         >
           الان بخر
