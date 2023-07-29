@@ -1,11 +1,8 @@
-import React, { useContext } from 'react';
-
-import { HomeContext } from '@/pages';
+import React from 'react';
 import RecentPostCard from './RecentPostCard';
 import { RiSearch2Line } from "react-icons/ri";
 
-const PostSidebar = () => {
-    const beansList = useContext(HomeContext)
+const PostSidebar = ({items}) => {
     return (
         <div className='col-span-1 lg:col-span-4 lg:sticky top-8'>
             <h1 className='text-black font-bold text-lg mb-4'>جستجو</h1>
@@ -16,11 +13,13 @@ const PostSidebar = () => {
             <div className='border-t border-slate-300 py-5 mt-7'>
                 <h1 className='text-black font-bold text-lg mb-4'>پست های اخیر</h1>
                 <div className='flex flex-col gap-4'>
-                    {beansList?.map(bean => 
+                    {items?.slice(0,4).map(item => 
                         <RecentPostCard 
-                            key={bean._id}
-                            name={bean.name}
-                            image={bean.image}
+                            key={item._id}
+                            title={item.title}
+                            image={item.image}
+                            id={item._id}
+                            route='blogs'
                             />
                         )}
                 </div>

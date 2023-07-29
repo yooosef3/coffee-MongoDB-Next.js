@@ -9,7 +9,7 @@ import Image from 'next/image';
 import { IoLogoTwitter } from "react-icons/io";
 
 const Post = () => {
-    const blog = useContext(BlogContext);
+    const {blog} = useContext(BlogContext);
     return (
         <div className="border-b border-slate-300 pb-10">
           <div className="flex gap-2 font-semibold text-[#51A06C]">

@@ -76,7 +76,7 @@ const Products = () => {
             />
           </div>
         </div>
-        <div className="w-[90%] md:w-[85%] lg:w-[25%] mx-auto lg:ml-auto mt-32 lg:mt-0">
+        <div className="w-[90%] md:w-[85%] lg:w-[25%] mx-auto lg:ml-auto mt-32 lg:mt-0 ">
           <section>
             <h1 className="text-black mb-5 text-xl font-bold">
               دسته بندی محصولات
@@ -102,6 +102,7 @@ const Products = () => {
               {productsList?.slice(0, 4).map((product) => (
                 <RatedProduct
                   key={product._id}
+                  id={product._id}
                   image={product.image}
                   name={product.name}
                   price={product.price}

@@ -24,7 +24,7 @@ import { TiTick } from "react-icons/ti";
 import { logos } from "@/components/layout/Footer";
 
 const Info = () => {
-  const product = useContext(ProductContext);
+  const {product} = useContext(ProductContext);
   const dispatch = useDispatch();
   const { items } = useSelector((state) => state.cart);
   const cartItem = items.find((item) => item._id === product._id);

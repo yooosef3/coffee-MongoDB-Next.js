@@ -6,7 +6,7 @@ import Head from "next/head";
 
 export const BlogContext = createContext(null);
 
-const blogDetails = ({ blog }) => {
+const blogDetails = ({ blog, blogs }) => {
   return (
     <>
       <Head>
@@ -14,7 +14,7 @@ const blogDetails = ({ blog }) => {
         <meta name="description" content="Best Coffee for you" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
-      <BlogContext.Provider value={blog}>
+      <BlogContext.Provider value={{blog, blogs}}>
         <BlogDetails />
       </BlogContext.Provider>
     </>
@@ -23,10 +23,12 @@ const blogDetails = ({ blog }) => {
 
 export const getServerSideProps = async ({ params }) => {
   const blog = await Blog.findOne({_id:params.blogId});
+  const blogs = await Blog.find({});
 
   return {
     props: {
       blog: JSON.parse(JSON.stringify(blog)),
+      blogs: JSON.parse(JSON.stringify(blogs)),
     },
   };
 };

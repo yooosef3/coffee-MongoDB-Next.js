@@ -9,7 +9,7 @@ import Image from "next/image";
 import { ProductContext } from "@/pages/products/[productId]";
 
 function Slider() {
-  const product = useContext(ProductContext);
+  const {product} = useContext(ProductContext);
   return (
     <div className="h-[400px] lg:w-[50%]">
       <Swiper
