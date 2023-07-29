@@ -43,7 +43,7 @@ const Header = () => {
   return (
     <header>
       <div
-        className={`p-5 md:p-10 fixed w-full z-20 duration-200 ${
+        className={`p-5 md:p-10 fixed w-full z-30 duration-200 ${
           navbar ? "bg-black bg-opacity-80 backdrop-blur-sm" : "bg-transparent"
         }`}
       >

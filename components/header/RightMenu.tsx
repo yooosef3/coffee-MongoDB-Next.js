@@ -14,7 +14,7 @@ type RightMenuPropsType = {
 }
 const RightMenu = ({right, setRight}:RightMenuPropsType) => {
     return (
-        <div className={`fixed  ${right ? 'right-0' : '-right-[400px]'} duration-1000 top-0 bottom-0 bg-zinc-900 p-14 text-center w-[400px] h-full z-20`}>
+        <div className={`fixed  ${right ? 'right-0' : '-right-[400px]'} duration-1000 top-0 bottom-0 bg-zinc-900 p-14 text-center w-[400px] h-full z-40`}>
             <BsXLg className="hover:text-red-600 duration-200 cursor-pointer" onClick={()=> setRight(!right)} />
             <div className="flex flex-col justify-start items-center gap-10 mt-10">
                 <Image className="w-36" src={logo} width={500} height={200} alt='logo'/>
