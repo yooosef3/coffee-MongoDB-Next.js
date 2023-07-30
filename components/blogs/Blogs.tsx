@@ -9,12 +9,14 @@ import PostSidebar from "../shared/PostSidebar";
 const Blogs = ({ blogsList }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [blogsPerPage, setBlogsPerPage] = useState(4);
+  const [searched, setSearched] = useState('');
+  const filteredBlogs = blogsList.filter(blog => blog.title.toLowerCase().includes(searched.toLowerCase()));
 
   const indexOfLastBlog = currentPage * blogsPerPage;
   const indexOfFirstBlog = indexOfLastBlog - blogsPerPage;
-  const currentBlogs = blogsList.slice(indexOfFirstBlog, indexOfLastBlog);
+  const currentBlogs = filteredBlogs.slice(indexOfFirstBlog, indexOfLastBlog);
 
-  const totalPages = Math.ceil(blogsList.length / blogsPerPage);
+  const totalPages = Math.ceil(filteredBlogs.length / blogsPerPage);
 
   const pageNumbers = [];
   for (let i = 1; i <= totalPages; i++) {
@@ -32,7 +34,7 @@ const Blogs = ({ blogsList }) => {
         header="لیست بلاگ"
       />
       <div className="w-[90%] md:w-[700px] lg:w-[920px] xl:w-[1200px] gap-10 mx-auto py-14 grid grid-cols-1 lg:grid-cols-12">
-        <PostSidebar items={blogsList}/>
+        <PostSidebar searched={searched} setSearched={setSearched} items={blogsList}/>
         <div className="col-span-1 lg:col-span-8 flex flex-col md:flex-row flex-wrap gap-6 md:gap-y-14">
           {currentBlogs?.map((blog) => (
             <Blog
