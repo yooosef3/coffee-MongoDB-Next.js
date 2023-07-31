@@ -2,7 +2,6 @@ import React, { useState } from "react";
 
 import Blog from "../home/blogs/Blog";
 import HeaderTemplate from "../shared/HeaderTemplate";
-import { IoIosArrowBack } from "react-icons/io";
 import Pagination from "../products/productsList/Pagination";
 import PostSidebar from "../shared/PostSidebar";
 
@@ -58,6 +57,7 @@ const Blogs = ({ blogsList }) => {
           />
         </div>
         <PostSidebar
+        search
           searched={searched}
           setSearched={setSearched}
           items={blogsList}
