@@ -30,7 +30,7 @@ const LeftMenu = ({left, setLeft}:LeftMenuPropsTypes) => {
             <BsXLg className="hover:text-red-600 duration-200 cursor-pointer m-5" onClick={()=> setLeft(!left)}/>
             <ul>
                 <li className="border-b border-gray-500 p-5">
-                    <Link href='/' className="font-bold w-full text-xl text-gray-500 hover:text-green-500 duration-200">خانه</Link>
+                    <Link onClick={() => setLeft(false)} href='/' className="font-bold w-full text-xl text-gray-500 hover:text-green-500 duration-200">خانه</Link>
                 </li>
                 <li className="border-b cursor-pointer border-gray-500 p-5">
                     <div className="flex justify-between items-center" onClick={()=> setMenu({collections : !menu.collections})}>
@@ -41,49 +41,49 @@ const LeftMenu = ({left, setLeft}:LeftMenuPropsTypes) => {
                         <h1 className='font-bold mb-2 mt-5 text-lg'>عربیکا سبز</h1>
                         <ul className='flex flex-col gap-2'>
                             <li>
-                                <Link className='text-gray-400 font-bold duration-200 hover:text-green-300' href='/'>آمریکانو</Link>
+                                <Link onClick={() => setLeft(false)} className='text-gray-400 font-bold duration-200 hover:text-green-300' href='/products/642c6922cc081beb5322bbd0'>آمریکانو</Link>
                             </li>
                             <li>
-                                <Link className='text-gray-400 font-bold duration-200 hover:text-green-300' href='/'>کاپوچینو</Link>
+                                <Link onClick={() => setLeft(false)} className='text-gray-400 font-bold duration-200 hover:text-green-300' href='/products/642c6f73cc081beb5322bbd1'>کاپوچینو</Link>
                             </li>
                             <li>
-                                <Link className='text-gray-400 font-bold duration-200 hover:text-green-300' href='/'>دابل اسپرسو</Link>
+                                <Link onClick={() => setLeft(false)} className='text-gray-400 font-bold duration-200 hover:text-green-300' href='/products/642c15dd66e64c7b9cde07ed'>دابل اسپرسو</Link>
                             </li>
                         </ul>
                         <h1 className='font-bold mb-2 mt-5 text-lg'>قهوه برشته لایت</h1>
                         <ul className='flex flex-col gap-2'>
                             <li>
-                                <Link className='text-gray-400 font-bold duration-200 hover:text-green-300' href='/'>لاته</Link>
+                                <Link onClick={() => setLeft(false)} className='text-gray-400 font-bold duration-200 hover:text-green-300' href='/products/642c63fecc081beb5322bbcf'>لاته</Link>
                             </li>
                             <li>
-                                <Link className='text-gray-400 font-bold duration-200 hover:text-green-300' href='/'>ماکیاتو</Link>
+                                <Link onClick={() => setLeft(false)} className='text-gray-400 font-bold duration-200 hover:text-green-300' href='/products/642c781acc081beb5322bbd3'>ماکیاتو</Link>
                             </li>
                             <li>
-                                <Link className='text-gray-400 font-bold duration-200 hover:text-green-300' href='/'>شکلات نعنایی</Link>
+                                <Link onClick={() => setLeft(false)} className='text-gray-400 font-bold duration-200 hover:text-green-300' href='/products/642c781acc081beb5322bbd3'>شکلات نعنایی</Link>
                             </li>
                         </ul>
                         <h1 className='font-bold mb-2 mt-5 text-lg'>قهوه برشته تیره</h1>
                         <ul className='flex flex-col gap-2'>
                             <li>
-                                <Link className='text-gray-400 font-bold duration-200 hover:text-green-300' href='/'>موکا</Link>
+                                <Link onClick={() => setLeft(false)} className='text-gray-400 font-bold duration-200 hover:text-green-300' href='/products/642c7bd5cc081beb5322bbd5'>موکا</Link>
                             </li>
                             <li>
-                                <Link className='text-gray-400 font-bold duration-200 hover:text-green-300' href='/'>وانیل</Link>
+                                <Link onClick={() => setLeft(false)} className='text-gray-400 font-bold duration-200 hover:text-green-300' href='/products/642c7463cc081beb5322bbd2'>وانیل</Link>
                             </li>
                             <li>
-                                <Link className='text-gray-400 font-bold duration-200 hover:text-green-300' href='/'>موکای سفید</Link>
+                                <Link onClick={() => setLeft(false)} className='text-gray-400 font-bold duration-200 hover:text-green-300' href='/products/642c8055cc081beb5322bbd8'>موکای سفید</Link>
                             </li>
                         </ul>
                         <h1 className='font-bold mb-2 mt-5 text-lg'>قهوه برشته مدیوم</h1>
                         <ul className='flex flex-col gap-2'>
                             <li>
-                                <Link className='text-gray-400 font-bold duration-200 hover:text-green-300' href='/'>موکا</Link>
+                                <Link onClick={() => setLeft(false)} className='text-gray-400 font-bold duration-200 hover:text-green-300' href='/products/642c7bd5cc081beb5322bbd5'>موکا</Link>
                             </li>
                             <li>
-                                <Link className='text-gray-400 font-bold duration-200 hover:text-green-300' href='/'>کارامل</Link>
+                                <Link onClick={() => setLeft(false)} className='text-gray-400 font-bold duration-200 hover:text-green-300' href='/products/642c7463cc081beb5322bbd2'>کارامل</Link>
                             </li>
                             <li>
-                                <Link className='text-gray-400 font-bold duration-200 hover:text-green-300' href='/'>موکای سفید</Link>
+                                <Link onClick={() => setLeft(false)} className='text-gray-400 font-bold duration-200 hover:text-green-300' href='/products/642c7bd5cc081beb5322bbd5'>موکای سفید</Link>
                             </li>
                         </ul>
                     </section>
@@ -94,21 +94,18 @@ const LeftMenu = ({left, setLeft}:LeftMenuPropsTypes) => {
                         <RiArrowDownSLine className={`font-bold text-xl ${menu.aroma && 'rotate-[180deg]'} duration-300 ${menu.aroma ? 'text-green-500' : 'text-gray-500'}`}/>
                     </div>
                     <section className={`my-4 ${menu.aroma ? 'flex flex-col' : 'hidden'} gap-5`}>
-                        <Link href='/'>
+                        <Link onClick={() => setLeft(false)} href='/products/642c7bd5cc081beb5322bbd5'>
                             <Image alt='coffee' width={300} height={200} src={coffee1} className='rounded-md hover:grayscale duration-200'/>
                             <h1 className='text-center font-bold text-gray-300 hover:text-green-300 duration-200 mt-1'>عربیکا برشته</h1>
                         </Link>
-                        <Link href='/'>
+                        <Link onClick={() => setLeft(false)} href='/products/642c15dd66e64c7b9cde07ed'>
                             <Image alt='coffee' width={300} height={200} src={coffee2} className='rounded-md hover:grayscale duration-200'/>
                             <h1 className='text-center font-bold text-gray-300 hover:text-green-300 duration-200 mt-1'>عربیکا سبز</h1>
                         </Link>
                     </section>
                 </li>
                 <li className="border-b border-gray-500 p-5">
-                    <Link href='/beans' className="font-bold text-xl text-gray-500 hover:text-green-500 duration-200">دانه های قهوه</Link>
-                </li>
-                <li className="border-b border-gray-500 p-5">
-                    <Link href='/blogs' className="font-bold text-xl text-gray-500 hover:text-green-500 duration-200">بلاگ</Link>
+                    <Link onClick={() => setLeft(false)} href='/blogs' className="font-bold text-xl text-gray-500 hover:text-green-500 duration-200">بلاگ</Link>
                 </li>
                 <li className="border-b cursor-pointer border-gray-500 p-5">
                     <div className="flex justify-between items-center" onClick={()=> setMenu({shop : !menu.shop})}>
@@ -118,13 +115,13 @@ const LeftMenu = ({left, setLeft}:LeftMenuPropsTypes) => {
                     <section className={`pr-3 pt-10 ${menu.shop ? 'block' : 'hidden'}`}>
                     <ul className='flex flex-col gap-4'>
                             <li>
-                                <Link className='text-gray-400 font-bold duration-200 hover:text-green-300' href='/products'>لیست محصولات</Link>
+                                <Link onClick={() => setLeft(false)} className='text-gray-400 font-bold duration-200 hover:text-green-300' href='/products'>لیست محصولات</Link>
                             </li>
                             <li>
-                                <Link className='text-gray-400 font-bold duration-200 hover:text-green-300' href='/cart'>سبد خرید</Link>
+                                <Link onClick={() => setLeft(false)} className='text-gray-400 font-bold duration-200 hover:text-green-300' href='/cart'>سبد خرید</Link>
                             </li>
                             <li>
-                                <Link className='text-gray-400 font-bold duration-200 hover:text-green-300' href='/'>حساب من</Link>
+                                <Link onClick={() => setLeft(false)} className='text-gray-400 font-bold duration-200 hover:text-green-300' href='/'>حساب من</Link>
                             </li>
                     </ul>
                     </section>
@@ -137,19 +134,19 @@ const LeftMenu = ({left, setLeft}:LeftMenuPropsTypes) => {
                     <section className={`pr-3 pt-10 ${menu.pages ? 'block' : 'hidden'}`}>
                     <ul className='flex flex-col gap-4'>
                             <li>
-                                <Link className='text-gray-400 font-bold duration-200 hover:text-green-300' href='/aboutus'>درباره ما</Link>
+                                <Link onClick={() => setLeft(false)} className='text-gray-400 font-bold duration-200 hover:text-green-300' href='/aboutus'>درباره ما</Link>
                             </li>
                             <li>
-                                <Link className='text-gray-400 font-bold duration-200 hover:text-green-300' href='/contact'>تماس با ما</Link>
+                                <Link onClick={() => setLeft(false)} className='text-gray-400 font-bold duration-200 hover:text-green-300' href='/contact'>تماس با ما</Link>
                             </li>
                             <li>
-                                <Link className='text-gray-400 font-bold duration-200 hover:text-green-300' href='/faq'>FAQ</Link>
+                                <Link onClick={() => setLeft(false)} className='text-gray-400 font-bold duration-200 hover:text-green-300' href='/faq'>FAQ</Link>
                             </li>
                             <li>
-                                <Link className='text-gray-400 font-bold duration-200 hover:text-green-300' href='/paymentRules'>قوانین پرداخت</Link>
+                                <Link onClick={() => setLeft(false)} className='text-gray-400 font-bold duration-200 hover:text-green-300' href='/paymentRules'>قوانین پرداخت</Link>
                             </li>
                             <li>
-                                <Link className='text-gray-400 font-bold duration-200 hover:text-green-300' href='/terms'>شرایط و ضوابط</Link>
+                                <Link onClick={() => setLeft(false)} className='text-gray-400 font-bold duration-200 hover:text-green-300' href='/terms'>شرایط و ضوابط</Link>
                             </li>
                     </ul>
                     </section>

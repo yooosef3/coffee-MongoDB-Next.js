@@ -47,6 +47,18 @@ const ProductsSidebar = ({
           </li>
         </ul>
       </section>
+      <section className="mt-14 ">
+        <div className="relative h-12 shadow-lg">
+          <input
+            type="text"
+            value={searched}
+            onChange={(e) => setSearched(e.target.value)}
+            className="w-full rounded-lg border border-gray-300 focus:border-blue-500 bg-white outline-none h-full pr-2 text-lg font-semibold text-black"
+            placeholder="جستجو..."
+          />
+          <FiSearch className="absolute left-2 top-4 text-gray-700 hover:text-red-600 duration-200 cursor-pointer" />
+        </div>
+      </section>
       <section className="mt-14 w-full">
         <h1 className="text-black mb-5 text-xl font-bold">محصولات مرتبط</h1>
         <div className="flex flex-col gap-5">
@@ -59,18 +71,6 @@ const ProductsSidebar = ({
               price={product.price}
             />
           ))}
-        </div>
-      </section>
-      <section className="mt-14 ">
-        <div className="relative h-12 shadow-lg">
-          <input
-            type="text"
-            value={searched}
-            onChange={(e) => setSearched(e.target.value)}
-            className="w-full rounded-lg border border-gray-300 focus:border-blue-500 bg-white outline-none h-full pr-2 text-lg font-semibold text-black"
-            placeholder="جستجو..."
-          />
-          <FiSearch className="absolute left-2 top-4 text-gray-700 hover:text-red-600 duration-200 cursor-pointer" />
         </div>
       </section>
     </div>

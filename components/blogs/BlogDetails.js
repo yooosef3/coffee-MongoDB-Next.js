@@ -16,8 +16,8 @@ const BlogDetails = () => {
         header={blog.title}
       />
       <div className="w-[90%] md:w-[700px] lg:w-[920px] xl:w-[1200px] gap-10 mx-auto py-14 grid grid-cols-1 lg:grid-cols-12">
-        <PostSidebar items={blogs} />
         <PostContent />
+        <PostSidebar items={blogs} />
       </div>
     </div>
   );

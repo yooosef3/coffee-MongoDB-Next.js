@@ -4,13 +4,9 @@ import { RiSearch2Line } from "react-icons/ri";
 
 const PostSidebar = ({items, searched, setSearched}) => {
     return (
-        <div className='col-span-1 lg:col-span-4 lg:sticky top-8'>
-            <h1 className='text-black font-bold text-lg mb-4'>جستجو</h1>
-            <div className='relative w-full mx-auto shadow-lg'>
-                <input value={searched} onChange={(e) => setSearched(e.target.value)} type='text' placeholder='جستجوی پست' className='w-full px-2 py-3 text-black font-semibold outline-none border border-slate-300 focus:border-blue-600 bg-white rounded-md'/>
-                <RiSearch2Line className='absolute top-4 hover:text-[#53A271] cursor-pointer duration-200 text-slate-400 left-2 text-xl'/>
-            </div>
-            <div className='border-t border-slate-300 py-5 mt-7'>
+        <div className='col-span-1 lg:col-span-4 lg:order-0 lg:order-0 lg:sticky top-8'>
+
+            <div className='py-5 mt-7'>
                 <h1 className='text-black font-bold text-lg mb-4'>پست های اخیر</h1>
                 <div className='flex flex-col gap-4'>
                     {items?.slice(0,4).map(item => 

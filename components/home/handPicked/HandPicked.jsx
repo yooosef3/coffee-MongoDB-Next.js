@@ -16,7 +16,7 @@ const HandPicked = () => {
                 <div className='w-[90%] lg:w-[50%] mx-auto relative group lg:h-[420px]'>
                     <div className="absolute inset-0 flex flex-col gap-2 justify-center items-center z-10">
                         <h1 className="text-white font-bold text-3xl">50% تخفیف</h1>
-                        <Link href='/' className='bg-[#54a06f] px-4 py-2 rounded-lg hover:bg-gray-800 font-bold duration-200'>
+                        <Link href='/products' className='bg-[#54a06f] px-4 py-2 rounded-lg hover:bg-gray-800 font-bold duration-200'>
                             جستجوی تخفیف ها
                         </Link>
                     </div>

@@ -1,3 +1,4 @@
+import Comment from "../../models/Comment";
 import React from "react";
 import { useForm } from "react-hook-form";
 
@@ -7,7 +8,15 @@ const CommentForm = () => {
     register,
     formState: { errors },
   } = useForm();
-  const submitHandler = async ({ email, name }) => {};
+  const submitHandler = async ({ author, email, text }) => {
+    try {
+      const comment = new Comment({ author, email, text });
+      const savedComment = await comment.save();
+      console.log("Comment saved successfully:", savedComment);
+    } catch (error) {
+      console.error("Error saving comment:", error);
+    }
+  };
 
   return (
     <div className="py-10">
@@ -23,7 +32,7 @@ const CommentForm = () => {
             id="name"
             placeholder="تام"
             className="bg-white p-2 rounded-md outline-none border text-slate-900 border-slate-300 focus:border-blue-600 mb-2"
-            {...register("name", {
+            {...register("author", {
               required: "لطفا یک نام وارد کنید!",
               minLength: {
                 value: 6,
@@ -31,8 +40,8 @@ const CommentForm = () => {
               },
             })}
           />
-          {errors.name && (
-            <div className="text-red-500 ">{errors.name.message}</div>
+          {errors.author && (
+            <div className="text-red-500 ">{errors.author.message}</div>
           )}
         </div>
         <div className="flex flex-col mt-6">
@@ -58,17 +67,26 @@ const CommentForm = () => {
           )}
         </div>
         <div className="flex flex-col my-6">
-          <label htmlFor="message" className="text-gray-400 font-bold">
+          <label htmlFor="text" className="text-gray-400 font-bold">
             متن نظر
           </label>
           <textarea
+            {...register("text", {
+              required: "لطفا یک پیام بنویسید!",
+              pattern: {
+                message: "لطفا یک ایمیل معتبر وارد کنید!",
+              },
+            })}
             className="bg-white p-2 rounded-md outline-none border text-slate-900 border-slate-300 focus:border-blue-600"
-            name="message"
-            id="message"
+            name="text"
+            id="text"
             cols={30}
             rows={10}
             placeholder="نظر خود را بنویسید"
-          ></textarea>
+          />
+          {errors.text && (
+            <div className="text-red-500">{errors.text.message}</div>
+          )}
         </div>
         <button
           type="submit"

@@ -1,3 +1,5 @@
+import toast, { Toaster } from "react-hot-toast";
+
 import React from "react";
 import { useForm } from "react-hook-form";
 
@@ -5,9 +7,13 @@ const Form = () => {
   const {
     handleSubmit,
     register,
+    reset,
     formState: { errors },
   } = useForm();
-  const submitHandler = async ({ email, name }) => {};
+  const submitHandler = async ({ email, name, text }) => {
+    toast.success("پیام شما با موفقیت دریافت شد!");
+    reset();
+  };
 
   return (
     <form onSubmit={handleSubmit(submitHandler)} className="lg:w-[60%]">
@@ -60,12 +66,22 @@ const Form = () => {
           متن پیام
         </label>
         <textarea
+          {...register("text", {
+            required: "لطفا یک پیام وارد کنید!",
+            minLength: {
+              value: 6,
+              message: "پیام شما باید بیشتر از 6 کاراکتر باشد!",
+            },
+          })}
           className="bg-white p-2 rounded-md outline-none border text-slate-900 border-slate-300 focus:border-blue-600"
           cols={30}
           rows={10}
           id="message"
           placeholder="متن پیام"
         />
+        {errors.text && (
+          <div className="text-red-500">{errors.text.message}</div>
+        )}
       </div>
       <button
         type="submit"
@@ -73,6 +89,7 @@ const Form = () => {
       >
         ارسال
       </button>
+      <Toaster />
     </form>
   );
 };
