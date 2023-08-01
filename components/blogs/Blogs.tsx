@@ -57,7 +57,7 @@ const Blogs = ({ blogsList }) => {
           />
         </div>
         <PostSidebar
-        search
+          search
           searched={searched}
           setSearched={setSearched}
           items={blogsList}

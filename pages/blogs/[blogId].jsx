@@ -16,7 +16,7 @@ const blogDetails = ({ blog, blogs, comments }) => {
         <meta name="description" content="Best Coffee for you" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
-      <BlogContext.Provider value={{ blog, blogs }}>
+      <BlogContext.Provider value={{ blog, blogs, comments }}>
         <BlogDetails />
       </BlogContext.Provider>
     </>

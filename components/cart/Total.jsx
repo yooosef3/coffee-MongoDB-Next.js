@@ -1,10 +1,10 @@
 import { useDispatch, useSelector } from "react-redux";
 
 import Link from "next/link";
-import React from "react";
 import axios from "axios";
 import { clearCart } from "@/redux/cartSlice";
 import { loadStripe } from "@stripe/stripe-js";
+import { useState } from "react";
 
 const Total = () => {
   const dispatch = useDispatch();
@@ -12,8 +12,12 @@ const Total = () => {
   const products = useSelector((state) => state.cart.items);
   const stripePromise = loadStripe(
     process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
-    );
-    const handleCheckout = async () => {
+  );
+
+  const [isCheckingOut, setIsCheckingOut] = useState(false);
+
+  const handleCheckout = async () => {
+    setIsCheckingOut(true); // set loading state to true
     dispatch(clearCart());
     const lineItems = products?.map((item) => {
       return {
@@ -35,7 +39,9 @@ const Total = () => {
     const stripe = await stripePromise;
     
     await stripe.redirectToCheckout({ sessionId: data.id });
+    setIsCheckingOut(false); // set loading state back to false
   };
+
   const totalProducts = products.reduce(
     (ac, product) => ac + product.quantity,
     0
@@ -69,7 +75,15 @@ const Total = () => {
             {totalPrice.toLocaleString()} تومان
           </span>
         </div>
-        {products.length ? (
+        {isCheckingOut ? (
+          <button
+            type="button"
+            className="rounded-md text-white bg-gray-500 mb-2 w-full font-bold text-center py-2 cursor-not-allowed"
+            disabled
+          >
+            در حال پردازش...
+          </button>
+        ) : products.length ? (
           <button
             type="button"
             onClick={handleCheckout}

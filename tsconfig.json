@@ -18,6 +18,33 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "components/products/product/productInfo/SliderInfo.js", "components/products/product/productInfo/Info.js", "components/products/product/productInfo/Slider.js", "components/home/handPicked/SliderTwo.jsx", "pages/_app.js", "components/layout/Header.jsx", "pages/products/[productId].jsx", "components/cart/ProductsTable.jsx", "components/cart/Total.jsx", "components/cart/Product.jsx", "components/home/trending/Slider.js", "pages/products/index.jsx", "components/home/trending/Trending.tsx", "components/home/trending/Product.js", "components/products/product/descReview/Description.jsx", "components/payment/Payment.js", "pages/beans/[beanId].jsx", "components/blogs/BlogDetails.js", "components/shared/Post.js", "components/shared/RecentPostCard.js", "components/shared/PostSidebar.js", "pages/blogs/index.jsx", "pages/blogs/[blogId].jsx"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "components/products/product/productInfo/SliderInfo.js",
+    "components/products/product/productInfo/Info.js",
+    "components/products/product/productInfo/Slider.js",
+    "components/home/handPicked/SliderTwo.jsx",
+    "pages/_app.js",
+    "components/layout/Header.jsx",
+    "pages/products/[productId].jsx",
+    "components/cart/ProductsTable.jsx",
+    "components/cart/Total.jsx",
+    "components/cart/Product.jsx",
+    "components/home/trending/Slider.js",
+    "pages/products/index.jsx",
+    "components/home/trending/Trending.tsx",
+    "components/home/trending/Product.js",
+    "components/products/product/descReview/Description.jsx",
+    "components/payment/Payment.js",
+    "pages/beans/[beanId].jsx",
+    "components/blogs/BlogDetails.js",
+    "components/home/blogs/Post.js",
+    "components/shared/RecentPostCard.js",
+    "components/shared/PostSidebar.js",
+    "pages/blogs/index.jsx",
+    "pages/blogs/[blogId].jsx"
+  ],
   "exclude": ["node_modules"]
 }
