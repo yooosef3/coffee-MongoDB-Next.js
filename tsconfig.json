@@ -45,6 +45,6 @@
     "components/shared/PostSidebar.js",
     "pages/blogs/index.jsx",
     "pages/blogs/[blogId].jsx"
-  ],
+, "pages/success.tsx"  ],
   "exclude": ["node_modules"]
 }
