@@ -1,3 +1,6 @@
+import "react-toastify/dist/ReactToastify.css";
+
+import { ToastContainer, toast } from "react-toastify";
 import { useDispatch, useSelector } from "react-redux";
 
 import Link from "next/link";
@@ -76,32 +79,34 @@ const Total = () => {
           </span>
         </div>
         {isCheckingOut ? (
-          <button
-            type="button"
-            className="rounded-md text-white bg-gray-500 mb-2 w-full font-bold text-center py-2 cursor-not-allowed"
-            disabled
-          >
-            در حال پردازش...
-          </button>
-        ) : products.length ? (
-          <button
-            type="button"
-            onClick={handleCheckout}
-            className="rounded-md text-white bg-[#53A06D] mb-2 w-full font-bold text-center py-2 hover:bg-slate-800 duration-200 cursor-pointer"
-          >
-            پرداخت
-          </button>
-        ) : (
-          <h1 className="rounded-md bg-slate-300 text-slate-600 cursor-not-allowed mb-2 font-bold text-center py-2">
-            تسویه حساب
-          </h1>
-        )}
+  <button
+    type="button"
+    className="rounded-md text-white bg-gray-500 mb-2 w-full font-bold text-center py-2 cursor-not-allowed"
+    disabled
+  >
+    در حال پردازش...
+  </button>
+) : (
+  <button
+    type="button"
+    onClick={() => {
+      toast.info("در حال انتقال به صفحه پرداخت...",{
+        position: 'top-center'
+      });
+      handleCheckout();
+    }}
+    className="rounded-md text-white bg-[#53A06D] mb-2 w-full font-bold text-center py-2 hover:bg-slate-800 duration-200 cursor-pointer"
+  >
+    پرداخت
+  </button>
+)}
         <Link href="/products">
           <h1 className="rounded-md text-white bg-slate-800 font-bold text-center py-2 hover:bg-[#53A06D] duration-200 cursor-pointer">
             ادامه خرید
           </h1>
         </Link>
       </div>
+      <ToastContainer />
     </div>
   );
 };
