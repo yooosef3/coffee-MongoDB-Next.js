@@ -11,7 +11,7 @@ import { useState } from "react";
 
 const Total = () => {
   const dispatch = useDispatch();
-  
+
   const products = useSelector((state) => state.cart.items);
   const stripePromise = loadStripe(
     process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
@@ -34,13 +34,16 @@ const Total = () => {
         quantity: item.quantity,
       };
     });
-    
-    const { data } = await axios.post("https://coffee-mongo-db-next-js.vercel.app/api/checkout", {
-      lineItems,
-    });
-    
+
+    const { data } = await axios.post(
+      "https://coffee-mongo-db-next-js.vercel.app/api/checkout",
+      {
+        lineItems,
+      }
+    );
+
     const stripe = await stripePromise;
-    
+
     await stripe.redirectToCheckout({ sessionId: data.id });
     setIsCheckingOut(false); // set loading state back to false
   };
@@ -79,27 +82,28 @@ const Total = () => {
           </span>
         </div>
         {isCheckingOut ? (
-  <button
-    type="button"
-    className="rounded-md text-white bg-gray-500 mb-2 w-full font-bold text-center py-2 cursor-not-allowed"
-    disabled
-  >
-    در حال پردازش...
-  </button>
-) : (
-  <button
-    type="button"
-    onClick={() => {
-      toast.info("در حال انتقال به صفحه پرداخت...",{
-        position: 'top-center'
-      });
-      handleCheckout();
-    }}
-    className="rounded-md text-white bg-[#53A06D] mb-2 w-full font-bold text-center py-2 hover:bg-slate-800 duration-200 cursor-pointer"
-  >
-    پرداخت
-  </button>
-)}
+          <button
+            type="button"
+            className="rounded-md text-white bg-gray-500 mb-2 w-full font-bold text-center py-2 cursor-not-allowed"
+            disabled
+          >
+            در حال پردازش...
+          </button>
+        ) : (
+          <button
+            type="button"
+            onClick={() => {
+              toast.info("در حال انتقال به صفحه پرداخت...", {
+                position: "top-center",
+              });
+              handleCheckout();
+            }}
+            className={`rounded-md text-white bg-[#53A06D] mb-2 w-full font-bold text-center py-2 disabled:bg-slate-500 disabled:cursor-not-allowed hover:bg-slate-800 duration-200 cursor-pointer`}
+            disabled={products.length === 0}
+          >
+            پرداخت
+          </button>
+        )}
         <Link href="/products">
           <h1 className="rounded-md text-white bg-slate-800 font-bold text-center py-2 hover:bg-[#53A06D] duration-200 cursor-pointer">
             ادامه خرید
