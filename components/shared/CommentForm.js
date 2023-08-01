@@ -10,15 +10,7 @@ const CommentForm = () => {
   } = useForm();
 
   const submitHandler = async ({ author, email, text }) => {
-    try {
-      const comment = new Comment({ author, email, text });
-      const savedComment = await comment.save();
-      console.log("Comment saved successfully:", savedComment);
-      
-      reset();
-    } catch (error) {
-      console.error("Error saving comment:", error);
-    }
+    
   };
 
   return (

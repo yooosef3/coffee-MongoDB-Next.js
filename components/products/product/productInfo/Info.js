@@ -5,6 +5,7 @@ import {
   increaseItem,
   removeItem,
 } from "../../../../redux/cartSlice";
+import toast, { Toaster } from "react-hot-toast";
 import { useDispatch, useSelector } from "react-redux";
 
 import { AiOutlineDelete } from "react-icons/ai";
@@ -24,7 +25,7 @@ import { TiTick } from "react-icons/ti";
 import { logos } from "@/components/layout/Footer";
 
 const Info = () => {
-  const {product} = useContext(ProductContext);
+  const { product } = useContext(ProductContext);
   const dispatch = useDispatch();
   const { items } = useSelector((state) => state.cart);
   const cartItem = items.find((item) => item._id === product._id);
@@ -38,7 +39,11 @@ const Info = () => {
   };
 
   const handleIncreaseItem = (itemId) => {
-    if (product.inStock > cartItem.quantity) dispatch(increaseItem(itemId));
+    if (product.inStock > cartItem.quantity) {
+      dispatch(increaseItem(itemId));
+    } else {
+      toast.error(`فقط ${product.inStock} عدد ${product.name} موجود است!`);
+    }
   };
 
   const handleDecreaseItem = (itemId) => {
@@ -62,10 +67,16 @@ const Info = () => {
       </h1>
       <div className="flex gap-2 my-4 items-center">
         <span className="text-gray-400 text-lg md:text-xl line-through font-bold">
-          {product.noOff.toLocaleString().replace(/\d/g, (d) => "۰۱۲۳۴۵۶۷۸۹"[d])} تومان
+          {product.noOff
+            .toLocaleString()
+            .replace(/\d/g, (d) => "۰۱۲۳۴۵۶۷۸۹"[d])}{" "}
+          تومان
         </span>
         <h1 className="font-extrabold text-2xl text-[#53A271]">
-          {product.price.toLocaleString().replace(/\d/g, (d) => "۰۱۲۳۴۵۶۷۸۹"[d])} تومان
+          {product.price
+            .toLocaleString()
+            .replace(/\d/g, (d) => "۰۱۲۳۴۵۶۷۸۹"[d])}{" "}
+          تومان
         </h1>
       </div>
       <div className="flex gap-2 mb-4 items-center">
@@ -123,7 +134,9 @@ const Info = () => {
       ) : (
         <div
           onClick={() => handleAddItem(product)}
-          className={`${product.inStock ? 'flex' : 'hidden'} justify-center w-48 text-xl mb-6 text-white bg-[#222222] hover:bg-[#438259] cursor-pointer duration-200 font-bold border border-gray-400 gap-2 pt-[4px] rounded-md`}
+          className={`${
+            product.inStock ? "flex" : "hidden"
+          } justify-center w-48 text-xl mb-6 text-white bg-[#222222] hover:bg-[#438259] cursor-pointer duration-200 font-bold border border-gray-400 gap-2 pt-[4px] rounded-md`}
         >
           <FaOpencart />
           <span>اضافه به سبد خرید</span>
@@ -152,6 +165,7 @@ const Info = () => {
           />
         ))}
       </div>
+      <Toaster />
     </div>
   );
 };
