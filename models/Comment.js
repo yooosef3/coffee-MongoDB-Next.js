@@ -19,15 +19,6 @@ const CommentSchema = new Schema(
     { timestamps: true }
   );
 
-  CommentSchema.methods.save = async function () {
-    const comment = new Comment({
-      author: this.author,
-      email: this.email,
-      text: this.text,
-    });
-    const savedComment = await comment.save();
-    return savedComment;
-  }
 
 const Comment = models?.Comment || model("Comment", CommentSchema);
 

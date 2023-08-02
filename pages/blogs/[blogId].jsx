@@ -27,15 +27,6 @@ export const getServerSideProps = async ({ params }) => {
   const blog = await Blog.findOne({ _id: params.blogId });
   const blogs = await Blog.find({});
   const comments = await Comment.find({ postId: blog._id });
-  const comment = new Comment({
-    postId: blog._id,
-    author: "John Doe",
-    text: "Great post!",
-  });
-
-  await comment.save();
-
-  await Blog.updateOne({ _id: blog._id }, { $push: { comments: comment._id } });
 
   return {
     props: {

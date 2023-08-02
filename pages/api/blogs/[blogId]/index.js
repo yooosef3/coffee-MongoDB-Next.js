@@ -1,5 +1,5 @@
-import Blog from '../../../models/Blog';
-import dbConnect from '../../../lib/db';
+import Blog from '../../../../models/Blog';
+import dbConnect from '../../../../lib/db';
 
 export default async function handler(req, res){
     const {method, query:{blogId}} = req;

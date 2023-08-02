@@ -1,16 +1,40 @@
-import Comment from "../../models/Comment";
-import React from "react";
+import React, { useState } from "react";
+import toast, { Toaster } from "react-hot-toast";
+
+import axios from "axios";
 import { useForm } from "react-hook-form";
+import { useRouter } from "next/router";
 
 const CommentForm = () => {
+  const [loading, setLoading] = useState(false);
+  const { query } = useRouter();
+  const blogId = query.blogId;
   const {
     handleSubmit,
+    reset,
     register,
     formState: { errors },
   } = useForm();
 
   const submitHandler = async ({ author, email, text }) => {
-    
+    setLoading(true);
+    try {
+      const response = await axios.post(
+        `http://localhost:3000/api/blogs/${blogId}/comments`,
+        {
+          author,
+          email,
+          text,
+        }
+      );
+
+      toast.success("نظر شما با موفقیت ثبت شد!");
+      reset();
+    } catch (error) {
+      toast.error("خطایی رخ داده است!");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -29,10 +53,6 @@ const CommentForm = () => {
             className="bg-white p-2 rounded-md outline-none border text-slate-900 border-slate-300 focus:border-blue-600 mb-2"
             {...register("author", {
               required: "لطفا یک نام وارد کنید!",
-              minLength: {
-                value: 6,
-                message: "نام باید بیشتر از 5 کاراکتر باشد!",
-              },
             })}
           />
           {errors.author && (
@@ -84,11 +104,13 @@ const CommentForm = () => {
           )}
         </div>
         <button
+          disabled={loading}
           type="submit"
           className="bg-slate-800 w-[200px] rounded-md py-2 px-4 font-bold text-white hover:bg-[#438259] duration-200 cursor-pointer"
         >
-          ثبت نظر
+          {!loading ? " ثبت نظر" : "در حال ارسال"}
         </button>
+        <Toaster />
       </form>
     </div>
   );

@@ -14,7 +14,7 @@ const Post = () => {
     return (
         <div className="border-b border-slate-300 pb-10">
           <div className="flex gap-2 font-semibold text-[#51A06C]">
-            <span>12 آذر, 1402</span>
+            <span>12 آذر 1401</span>
             <div className="flex gap-1 items-center">
                 <BiComment />
                 <div>
