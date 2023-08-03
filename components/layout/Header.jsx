@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { signOut, useSession } from "next-auth/react";
+import { useDispatch, useSelector } from "react-redux";
 
 import { BsXLg } from "react-icons/bs";
 import { CgMenuRight } from "react-icons/cg";
@@ -12,9 +13,11 @@ import Menu from "../header/Menu";
 import MenuCart from "../header/MenuCart";
 import { RiSearch2Line } from "react-icons/ri";
 import RightMenu from "../header/RightMenu";
+import SearchedCard from '../header/SearchedCard'
 import { TfiMenu } from "react-icons/tfi";
+import axios from "axios";
 import coffee from "../../public/images/coffee-logo.webp";
-import { useSelector } from "react-redux";
+import { getProducts } from "../../redux/productsSlice";
 
 const Header = () => {
   const [toggle, setToggle] = useState(false);
@@ -22,10 +25,30 @@ const Header = () => {
   const [right, setRight] = useState(false);
   const [left, setLeft] = useState(false);
   const [openSearch, setOpenSearch] = useState(false);
-  const [searched, setSearched] = useState("");
+  const [searched, setSearched] = useState('');
   const [navbar, setNavbar] = useState(false);
   const { data: session, status } = useSession();
   const products = useSelector((state) => state.cart.items);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get("/api/products");
+        dispatch(getProducts(response.data));
+      } catch (error) {
+        console.error("Error fetching products:", error);
+      }
+    };
+
+    fetchData();
+  }, [dispatch]);
+
+  const all_products = useSelector((state) => state.products.items);
+
+  const searchedProducts = all_products.filter((product) =>
+    product.name.toLowerCase().includes(searched.toLowerCase())
+  );
 
   const changeBackground = () => {
     if (window.scrollY >= 100) {
@@ -91,7 +114,11 @@ const Header = () => {
                   {products.length}
                 </span>
               </div>
-              <MenuCart products={products} setToggle={setToggle} toggle={toggle} />
+              <MenuCart
+                products={products}
+                setToggle={setToggle}
+                toggle={toggle}
+              />
             </div>
             {status === "loading" ? (
               <div>Loading...</div>
@@ -108,7 +135,7 @@ const Header = () => {
                   src={session.user.image}
                 />
                 <h3 className=" font-bold text-white text-sm md:text-base pt-2">
-                  {session.user.name.split(' ')[0]}
+                  {session.user.name.split(" ")[0]}
                 </h3>
                 <div
                   className={`absolute overflow-hidden top-10 ${
@@ -145,15 +172,20 @@ const Header = () => {
             <div className="relative">
               <input
                 placeholder="جستجوی محصول"
-                className="w-full h-full text-lg outline-none p-2 rounded-md border bg-white border-gray-200 focus:border-blue-500"
+                className="w-full h-full text-lg text-gray-900 outline-none p-2 rounded-md border bg-white border-gray-200 focus:border-blue-500"
                 type="text"
                 value={searched}
                 onChange={(e) => setSearched(e.target.value)}
               />
-              <Link href="/">
-                <RiSearch2Line className="absolute left-2 top-[14px] text-lg hover:text-green-500 duration-200 cursor-pointer text-gray-600" />
-              </Link>
+              <RiSearch2Line className="absolute left-2 top-[14px] text-lg  duration-200 text-gray-600" />
             </div>
+            {searchedProducts.length > 0 && (
+              <div className="rounded-md mt-3 max-h-[450px] overflow-y-scroll shadow-lg">
+                {searchedProducts?.map((item) => (
+                  <SearchedCard setOpenSearch={setOpenSearch} key={item._id} {...item}/>
+                ))}
+              </div>
+            )}
           </div>
         )}
       </div>
