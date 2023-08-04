@@ -8,7 +8,7 @@ import Head from "next/head";
 export const BlogContext = createContext(null);
 
 const blogDetails = ({ blog, blogs, comments }) => {
-  console.log(comments);
+  
   return (
     <>
       <Head>

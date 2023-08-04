@@ -95,6 +95,8 @@ const Total = () => {
             onClick={() => {
               toast.info("در حال انتقال به صفحه پرداخت...", {
                 position: "top-center",
+                autoClose: 10000,
+                theme: 'colored'
               });
               handleCheckout();
             }}
