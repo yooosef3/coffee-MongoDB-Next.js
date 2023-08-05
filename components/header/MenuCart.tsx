@@ -52,21 +52,12 @@ const MenuCart = ({ products, toggle, setToggle }: PropTypes) => {
             >
               مشاهده سبد خرید
             </Link>
-            {/* <Link
-              className="text-white font-bold text-center py-2 bg-zinc-800 rounded-sm hover:bg-emerald-600 duration-200"
-              href="/payment"
-            >
-              تسویه
-            </Link> */}
           </>
         ) : (
           <>
             <h1 className="text-slate-600 font-bold text-center py-2 bg-slate-300 rounded-sm cursor-not-allowed">
               مشاهده سبد خرید
             </h1>
-            {/* <h1 className="text-slate-600 font-bold text-center py-2 bg-slate-300 rounded-sm cursor-not-allowed">
-              تسویه
-            </h1> */}
           </>
         )}
       </div>

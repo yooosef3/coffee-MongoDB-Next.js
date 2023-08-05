@@ -132,12 +132,21 @@ const Review = ({ close }) => {
             <div className="text-red-500">{errors.text.message}</div>
           )}
         </div>
+        {!loading ? 
         <button
           type="submit"
           className="bg-slate-800 w-[200px] rounded-md py-2 px-4 font-bold text-white hover:bg-[#438259] duration-200 cursor-pointer"
         >
           ثبت نظر
+        </button>:
+        <button
+        disabled
+          type="submit"
+          className="bg-slate-400 w-[200px] rounded-md py-2 px-4 font-bold text-white"
+        >
+          در حال ارسال
         </button>
+        }
         <Toaster />
       </form>
     </div>

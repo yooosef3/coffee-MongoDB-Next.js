@@ -73,16 +73,16 @@ const renderCartIcon = () => {
           href={`/products/${_id}`}
           className="group-hover:opacity-0 group-hover:hidden"
         >
-          <Image className="w-full h-[250px] object-cover" src={image[0]} width={450} height={500} alt="product" />
+          <Image className="w-full h-[250px] object-cover  duration-700" src={image[0]} width={450} height={500} alt="product" />
         </Link>
         <Link
           href={`/products/${_id}`}
           className="hidden group-hover:opacity-100 group-hover:block"
         >
-          <Image className="w-full h-[250px] object-cover" src={image[1]} width={450} height={500} alt="product" />
+          <Image className="w-full h-[250px] object-cover  duration-700" src={image[1]} width={450} height={500} alt="product" />
         </Link>
       </div>
-      <div className="flex flex-col bg-white p-3 gap-3">
+      <div className="flex flex-col bg-white p-5 lg:p-4 gap-3">
         <Link href={`/products/${_id}`} className="w-fit cursor-pointer ">
           <h1 className="text-black font-bold text-xl duration-200 hover:text-[#54A06F]">
             {name}
@@ -102,7 +102,7 @@ const renderCartIcon = () => {
           </div>
           <span className="text-gray-400 font-bold">(4نظر)</span>
         </div>
-        <div className="flex gap-1 lg:hidden lg:group-hover:flex lg:absolute bottom-[40%] lg:justify-center">
+        <div className="flex gap-1 lg:opacity-0 lg:group-hover:opacity-100 duration-700 lg:absolute bottom-[40%] lg:justify-center">
         {renderCartIcon()}
           <Link href={`/products/${_id}`}>
             <FiEye className={`${commonClassNames}`} />

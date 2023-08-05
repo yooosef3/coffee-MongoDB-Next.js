@@ -29,7 +29,7 @@ const Product = ({ product }) => {
             <Image
               width={80}
               height={80}
-              className="rounded-[25%]"
+              className="rounded-[25%] hover:opacity-70 duration-200"
               alt="product"
               src={image?.[0]}
             />

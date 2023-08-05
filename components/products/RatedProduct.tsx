@@ -11,7 +11,7 @@ const RatedProduct = ({name, image, price, id}) => {
         <div className="flex gap-10 items-center">
             <div>
                 <Link href={`/products/${id}`}>
-                    <Image alt='rated' src={image[1]} width={120} height={120} className='rounded-md'/>
+                    <Image alt='rated' src={image[1]} width={120} height={120} className='rounded-md hover:opacity-70 duration-300'/>
                 </Link>
             </div>
             <div>

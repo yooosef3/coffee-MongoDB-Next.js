@@ -10,9 +10,9 @@ import React from 'react';
 // }
 const RecentPostCard = ({title, image, id, route}) => {
     return (
-        <div className='flex items-center gap-6'>
+        <div className='flex items-center group gap-6'>
             <div>
-                <Image className='rounded-md' src={image} alt='recent-post' width={90} height={90}/>
+                <Image className='rounded-md group-hover:opacity-70 duration-300' src={image} alt='recent-post' width={90} height={90}/>
             </div>
             <div>
                 <Link href={`/${route}/${id}`} className='w-fit'>
