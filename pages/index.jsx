@@ -12,6 +12,7 @@ import Testimonials from "@/components/home/testimonials/Testimonials";
 import Trending from "@/components/home/trending/Trending";
 import { createContext } from "react";
 import dbConnect from '../lib/db';
+import { useSelector } from 'react-redux';
 
 export const HomeContext = createContext();
 

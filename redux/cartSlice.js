@@ -3,7 +3,8 @@ import { createSlice } from "@reduxjs/toolkit";
 export const cartSlice = createSlice({
   name: "cart",
   initialState: {
-    items: []
+    items: [],
+    history: [],
   },
   reducers: {
     addItem: (state, action) => {
@@ -36,10 +37,27 @@ export const cartSlice = createSlice({
     clearCart: (state) => {
       state.items = [];
     },
+    checkout: (state) => {
+      const currentDate = new Date().toLocaleDateString();
+      const historyWithDate = state.items.map((item) => ({
+        ...item,
+        date: currentDate,
+      }));
+      state.history = state.history
+        ? [...state.history, ...historyWithDate]
+        : historyWithDate;
+      state.items = [];
+    },
   },
 });
 
-export const { addItem, increaseItem, decreaseItem, removeItem, clearCart } =
-  cartSlice.actions;
+export const {
+  addItem,
+  increaseItem,
+  decreaseItem,
+  removeItem,
+  clearCart,
+  checkout,
+} = cartSlice.actions;
 
 export default cartSlice.reducer;

@@ -1,11 +1,11 @@
 import "react-toastify/dist/ReactToastify.css";
 
 import { ToastContainer, toast } from "react-toastify";
+import { checkout, clearCart } from "@/redux/cartSlice";
 import { useDispatch, useSelector } from "react-redux";
 
 import Link from "next/link";
 import axios from "axios";
-import { clearCart } from "@/redux/cartSlice";
 import { loadStripe } from "@stripe/stripe-js";
 import { useState } from "react";
 
@@ -20,7 +20,8 @@ const Total = () => {
   const [isCheckingOut, setIsCheckingOut] = useState(false);
 
   const handleCheckout = async () => {
-    setIsCheckingOut(true); // set loading state to true
+    // setIsCheckingOut(true); // set loading state to true
+    dispatch(checkout());
     dispatch(clearCart());
     const lineItems = products?.map((item) => {
       return {

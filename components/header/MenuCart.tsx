@@ -5,7 +5,7 @@ import React from "react";
 type PropTypes = {
   toggle: boolean;
   products: [any];
-  setToggle: any
+  setToggle: any;
 };
 
 const MenuCart = ({ products, toggle, setToggle }: PropTypes) => {
@@ -38,7 +38,12 @@ const MenuCart = ({ products, toggle, setToggle }: PropTypes) => {
         <div className="flex justify-between border-b pb-2">
           <h1 className="text-black font-bold">مجموع:</h1>
           <div className="text-green-600 font-bold">
-            <span>{totalPrice.toLocaleString().replace(/\d/g, (d) => "۰۱۲۳۴۵۶۷۸۹"[d])} تومان</span>
+            <span>
+              {totalPrice
+                .toLocaleString()
+                .replace(/\d/g, (d) => "۰۱۲۳۴۵۶۷۸۹"[d])}{" "}
+              تومان
+            </span>
           </div>
         </div>
       )}
@@ -48,7 +53,7 @@ const MenuCart = ({ products, toggle, setToggle }: PropTypes) => {
             <Link
               className="text-white font-bold text-center py-2 bg-zinc-800 rounded-sm hover:bg-emerald-600 duration-200"
               href="/cart"
-              onClick={()=> setToggle(false)}
+              onClick={() => setToggle(false)}
             >
               مشاهده سبد خرید
             </Link>

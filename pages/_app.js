@@ -15,14 +15,14 @@ export default function App({
     return Component.getLayout(<Component {...pageProps} />);
   }
   return (
-      <SessionProvider session={session}>
-        <Provider store={store}>
-          <PersistGate loading={null} persistor={persistor}>
-            <Layout>
-              <Component {...pageProps} />
-            </Layout>
-          </PersistGate>
-        </Provider>
-      </SessionProvider>
+    <SessionProvider session={session}>
+      <Provider store={store}>
+        <PersistGate loading={null} persistor={persistor}>
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        </PersistGate>
+      </Provider>
+    </SessionProvider>
   );
 }

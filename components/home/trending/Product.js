@@ -102,7 +102,7 @@ const renderCartIcon = () => {
           </div>
           <span className="text-gray-400 font-bold">(4نظر)</span>
         </div>
-        <div className="flex gap-1 lg:opacity-0 lg:group-hover:opacity-100 duration-700 lg:absolute bottom-[40%] lg:justify-center">
+        <div className="flex gap-1 lg:opacity-0 lg:translate-y-20 lg:group-hover:translate-y-0 lg:group-hover:opacity-100 duration-700 lg:absolute bottom-[40%] lg:justify-center">
         {renderCartIcon()}
           <Link href={`/products/${_id}`}>
             <FiEye className={`${commonClassNames}`} />
