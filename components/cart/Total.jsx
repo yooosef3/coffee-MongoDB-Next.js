@@ -20,7 +20,7 @@ const Total = () => {
   const [isCheckingOut, setIsCheckingOut] = useState(false);
 
   const handleCheckout = async () => {
-    // setIsCheckingOut(true); // set loading state to true
+    setIsCheckingOut(true); // set loading state to true
     dispatch(checkout());
     dispatch(clearCart());
     const lineItems = products?.map((item) => {

@@ -12,8 +12,8 @@ const Orders = () => {
       {orders.length ? (
         <div className="w-[90%] mx-auto overflow-auto">
           <div className="w-[592px] md:w-full px-2 h-[515px]">
-            {orders.map((order) => (
-              <Order key={order._id} order={order} />
+            {orders.map((order, i) => (
+              <Order key={i} order={order} />
             ))}
           </div>
         </div>

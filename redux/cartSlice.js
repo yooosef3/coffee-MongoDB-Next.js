@@ -40,11 +40,11 @@ export const cartSlice = createSlice({
     checkout: (state) => {
       const currentDate = new Date().toLocaleDateString();
       const historyWithDate = state.items.map((item) => ({
-        ...item,
         date: currentDate,
+        ...item,
       }));
       state.history = state.history
-        ? [...state.history, ...historyWithDate]
+        ? [...historyWithDate, ...state.history, ]
         : historyWithDate;
       state.items = [];
     },

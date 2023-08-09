@@ -140,7 +140,7 @@ const Header = () => {
                 <div
                   className={`absolute overflow-hidden top-10 ${
                     !open && "hidden"
-                  } bg-white shadow-md w-full rounded-md`}
+                  } bg-white shadow-md w-52 rounded-md`}
                 >
                   <Link href="/">
                     <h3 className="text-gray-700 py-1 pr-3 hover:text-gray-400 hover:bg-gray-50 duration-300 cursor-pointer">
