@@ -138,23 +138,23 @@ const Header = () => {
                   {session.user.name.split(" ")[0]}
                 </h3>
                 <div
-                  className={`absolute overflow-hidden top-10 ${
+                  className={`absolute overflow-hidden top-10 left-20 md:right-20 ${
                     !open && "hidden"
-                  } bg-white shadow-md w-52 rounded-md`}
+                  } bg-white shadow-md w-44 rounded-md`}
                 >
                   <Link href="/">
-                    <h3 className="text-gray-700 py-1 pr-3 hover:text-gray-400 hover:bg-gray-50 duration-300 cursor-pointer">
+                    <h3 className="text-gray-700 py-2 pr-3 hover:text-gray-400 hover:bg-gray-50 duration-300 cursor-pointer">
                       خانه
                     </h3>
                   </Link>
                   <Link href="/orders">
-                    <h3 className="text-gray-700 py-1 pr-3 hover:text-gray-400 hover:bg-gray-50 duration-300 cursor-pointer">
+                    <h3 className="text-gray-700 py-2 pr-3 hover:text-gray-400 hover:bg-gray-50 duration-300 cursor-pointer">
                     سابقه خرید شما
                     </h3>
                   </Link>
                   <h3
                     onClick={() => signOut()}
-                    className="text-red-700 py-1 pr-3 hover:text-red-800 hover:bg-gray-50 duration-300 cursor-pointer"
+                    className="text-red-700 py-2 pr-3 hover:text-red-800 hover:bg-gray-50 duration-300 cursor-pointer"
                   >
                     خروج
                   </h3>
