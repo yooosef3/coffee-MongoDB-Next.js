@@ -7,6 +7,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import Image from "next/image";
 import Link from "next/link";
 import React from 'react';
+import TypewriterComponent from "typewriter-effect";
 import leaf from '../../../public/images/slider-separator-img.png'
 import logo from '../../../public/images/h1-slider-img-1.png'
 import slide1 from '../../../public/images/coffee-concept-with-differents-types-coffee-coffee-beans-milk-cinnamon-sticks-grey-background-flat-lay.jpg'
@@ -42,7 +43,17 @@ const Slider = () => {
                             <div className="absolute bg-black inset-0 opacity-40"></div>
                             <div className="flex flex-col items-center justify-center absolute inset-0 gap-16 md:gap-12 lg:pt-32 lg:pl-64">
                                 <Image alt="slide" src={logo} width={130} height={130}/>
-                                <h1 className="text-6xl font-semibold">{slide.title}</h1>
+                                <div className="text-6xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-800">
+                                  <TypewriterComponent 
+                                    options={{
+                                      strings:[
+                                        slide.title
+                                      ],
+                                      autoStart: true,
+                                      loop: true
+                                    }}
+                                   />
+                                </div>
                                 <Image alt="leaf" src={leaf} width={150} height={50}/>
                                 <p className="hidden md:block md:text-xl w-[80%] leading-9 ">{slide.description}</p>
                                 <Link href='/products' className="border border-y-yellow-100 font-bold py-3 px-5 hover:bg-yellow-600 duration-200 hover:border-yellow-600 text-2xl">خرید کن</Link>

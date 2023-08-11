@@ -45,6 +45,6 @@
     "components/shared/PostSidebar.js",
     "pages/blogs/index.jsx",
     "pages/blogs/[blogId].jsx"
-, "pages/success.tsx", "components/products/product/descReview/Review.jsx"  ],
+, "pages/success.tsx", "components/products/product/descReview/Review.jsx", "components/crisp-chat.tsx"  ],
   "exclude": ["node_modules"]
 }
