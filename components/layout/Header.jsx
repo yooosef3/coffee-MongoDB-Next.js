@@ -138,7 +138,7 @@ const Header = () => {
                   {session.user.name.split(" ")[0]}
                 </h3>
                 <div
-                  className={`absolute overflow-hidden top-10 left-5 md:right-5 ${
+                  className={`absolute overflow-hidden top-10 left-0 md:right-0 ${
                     !open && "hidden"
                   } bg-white shadow-md w-44 rounded-md`}
                 >

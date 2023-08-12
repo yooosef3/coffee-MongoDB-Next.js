@@ -6,23 +6,24 @@ import Login from "@/components/login/Login";
 
 const LoginScreen = () => {
   return (
-  <div>
-    <HeaderTemplate 
-        background='/images/photo-1509822929063-6b6cfc9b42f2.avif' 
-        header='ورود'
-        />
-        <Login />
-  </div>
-  )
+    <div>
+      <HeaderTemplate
+        background="/images/photo-1509822929063-6b6cfc9b42f2.avif"
+        header="ورود"
+        feature
+      />
+      <Login />
+    </div>
+  );
 };
 
 export default LoginScreen;
 
-LoginScreen.getLayout = function PageLayout(page:FC) {
-  return(
-      <>
-          {page}
-          <Footer />
-      </>
-  )
-}
+LoginScreen.getLayout = function PageLayout(page: FC) {
+  return (
+    <>
+      {page}
+      <Footer />
+    </>
+  );
+};
